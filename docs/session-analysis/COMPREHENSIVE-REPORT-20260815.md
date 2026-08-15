@@ -52,7 +52,7 @@
 
 **但环境层自带能力脚手架（用户预装，非实验变量）**：
 - **4 个 MCP 服务器**（晋升后全部进入工具目录，共 36 个工具）：playwright（浏览器自动化，24 工具）、server-memory（会话记忆知识图谱，9）、context7（库文档查询，2）、codegraph（代码检索，1）；
-- **项目 skill 目录注入（Matt Pocock 的 skills 集）**：用户安装的 Matt Pocock skills，RL-open 会话实测注入 15 项（code-review / tdd / grilling / diagnosing-bugs / prototype / research / wizard / writing-for-agents 等，数量随项目目录的 skill 目录而异）；
+- **项目 skill 目录注入（Matt Pocock 的 skills 集）**：用户安装的 Matt Pocock skills。**该注入是普遍机制，所有会话在工具面全开/晋升后都会出现**，并非 RL 特有——anchored 系预设首轮剥离 skill-catalog、晋升后恢复；zero-anchored 系第二轮注入（try 会话实测 turn2 工具目录含 skill-catalog）；standard 系全开即注入。RL-open 会话是**唯一做过 request/header 逐字节实测**的，确认注入 15 项（code-review / tdd / grilling / diagnosing-bugs / prototype / research / wizard / writing-for-agents 等），具体数量随项目目录的 skill 目录而异；
 - 因此"许愿式生成"的准确含义是：**指令层零工程要求，环境层脚手架齐备**。验证文化的工具基础正是这个脚手架——playwright 使像素断言/控制台检查成为可能；模型的自主性体现在**在无任何提示下选择使用**（RL 调用 playwright 74 次，codegraph/context7/server-memory/skill 0 次——脚手架可用，用不用、怎么用由模型决定）。anchored 系预设首轮只暴露 2 个工具（MCP 不可见），晋升后才可见可用。
 
 **它的规划性质：短程规划，不是长程规划**。生成过程确实带有规划，但形态是：
