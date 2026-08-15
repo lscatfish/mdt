@@ -383,6 +383,8 @@
 
 ## 7. 与 modeltest（Project2）的交叉验证
 
+> **引用声明**：本节中所有 Project2 的成绩、样本统计与结论（98/99、let_me 分带、p50 分带、potential 句首检出、轨迹分类等）均**引自** xiaobright/modeltest 仓库的既有报告（《DeepSeek V4 Pro 正式版：轨迹风格与 PTC 对照分析》《DeepSeek V4 Pro/Flash 轨迹触发机制实验》《V4.1b 成绩榜》及 `evaluator/trajectory_evidence/` 聚合数据；该仓库为个人私有评测项目，原始证据不公开）。**非本实验原创**。本实验（Minecraft 11 会话）只提供：① 同一套微观指标在第二个任务上的独立计算；② 与 Project2 结论的对照判断（即各表"修正"列）。两边的结论相互独立，本节的对照不改变 modeltest 既有报告的结论归属。
+
 同一套微观指标在**另一个任务（Python+ESP32 维护工程，45 项 hidden 测试）**上的独立复验。数据源：`trajectory_stats.json`（modeltest 评测证据目录，私有，未包含在本仓库；11 个样本：10 个完成态 + 两份 anchored-standard 评审）。
 
 ### 7.1 样本总览
