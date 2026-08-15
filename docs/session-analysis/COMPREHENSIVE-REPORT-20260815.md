@@ -10,19 +10,19 @@
 
 全文统一使用缩写命名，对照关系：
 
-| 缩写 | 会话 id | 项目目录 | 预设形态（具体提交/版本） |
+| 缩写 | 会话 id | 项目目录 | 预设形态（对应本仓库 `agent-presets-repro/presets/` 下的文件） |
 | --- | --- | --- | --- |
-| **B1** | `14f893a0` | `mdt\baseline` | anchored-standard 旧版（fork 仓库 `d187e44`/`c774e60` 形态） |
-| **UP** | `347ab4b5` | `mdt\baseline-upstream` | anchored-standard 的 upstream main 形态（`41f836e` Windows bash 工具之后，含 `67c0ee3` 后晋升低注入） |
-| **B2** | `9f916db0` | `mdt\baseline2` | anchored-standard 修复版（回退 `7f49fb9` 后补 prepend 修复、关闭首轮 cap） |
+| **B1** | `14f893a0` | `mdt\baseline` | anchored-standard 旧版（首轮 cap 1024）→ `custom/anchored-standard-old/` |
+| **UP** | `347ab4b5` | `mdt\baseline-upstream` | anchored-standard 的 upstream main 形态（custom-bash + 晋升低注入）→ `custom/anchored-standard-upstream/` |
+| **B2** | `9f916db0` | `mdt\baseline2` | anchored-standard 修复版（prepend 修复、关闭首轮 cap）→ `custom/anchored-standard/` |
 | **B3** | `d5cc2a80` | `mdt\baseline3` | 同 B2 |
-| **T1** | `a0c8952d` | `mdt\try-mc1` | zero-anchored-standard-b（B 风格要求，anchor 消息注入） |
-| **T2** | `7c5cdb82` | `mdt\try-mc2` | zero-anchored-standard（A 风格要求，anchor 消息注入） |
-| **T3** | `58fbb8be` | `mdt\try-mc3` | standard-we-contract（A 风格要求，写入系统提示） |
+| **T1** | `a0c8952d` | `mdt\try-mc1` | zero-anchored-standard-b（B 风格要求，anchor 消息注入）→ `custom/zero-anchored-standard-b/` |
+| **T2** | `7c5cdb82` | `mdt\try-mc2` | zero-anchored-standard（A 风格要求，anchor 消息注入）→ `custom/zero-anchored-standard/` |
+| **T3** | `58fbb8be` | `mdt\try-mc3` | standard-we-contract（A 风格要求，写入系统提示）→ `custom/standard-we-contract/` |
 | **B+T** | `65f36716` | `mdt\B+template` | zero-anchored-standard-b + 模板 |
-| **PA** | `6121afd6` | `mdt\prompt-adding` | standard（无锚定无要求）+ 用户消息自带首块规划提示词 |
-| **BB** | `ff3a7c80` | `mdt\baseline-bash` | anchored-standard-gitbash（lscatfish 分支 `bf1f9b7` 新建、`ed8c747` 路径约定修复前） |
-| **RL** | `fb6443f2` | `mdt\RL-open` | **anchored-standard-open**（lscatfish `92cb9c0` 新建：首轮 bootstrapTools `[bash, str_replace_editor]` 官方 minimal 接口 + 晋升后 63 工具全开，无 resident 隐藏组件） |
+| **PA** | `6121afd6` | `mdt\prompt-adding` | standard（无锚定无要求）+ 用户消息自带首块规划提示词 → `shipped/standard/` |
+| **BB** | `ff3a7c80` | `mdt\baseline-bash` | anchored-standard-gitbash（custom-bash + 路径约定修复）→ `custom/anchored-standard-gitbash/` |
+| **RL** | `fb6443f2` | `mdt\RL-open` | **anchored-standard-open**（首轮 bootstrapTools `[bash, str_replace_editor]` 官方 minimal 接口 + 晋升后 63 工具全开，无 resident 隐藏组件）→ `custom/anchored-standard-open/` |
 
 用户最终实测评级（详见第 2 节）：**B1 与 UP 最好（两者相当）、B2 不好、B3 较好（仅一个小 bug）、T1 不好、T2 最好但贴图错、T3 最差、B+T 中等、PA 还行（黑屏已修）、BB 不行（目录+渲染问题）、RL 较好（操作键方向解算有问题，可游泳）**。另：几乎所有会话的水渲染都有问题（详见 2.2 末；RL 用户未报水渲染问题）。
 
@@ -448,7 +448,7 @@
 
 ### 7.5 数据局限
 
-- 每配置 n=1–2；同题同渠道；anchored-standard 双跑 98/99 是 8/14 评测形态（`e1277b5`，纯工具面锚定，无 cap 无注入剥离），非当前安装形态。
+- 每配置 n=1–2；同题同渠道；anchored-standard 双跑 98/99 是 8/14 的 modeltest 外部评测形态（纯工具面锚定，无 cap 无注入剥离），非本仓库预设形态。
 - 句首统计只含 Top12；全词情态/potential 密度待原始 JSONL（私有证据目录）。
 - 跨 harness（DSH vs OpenCode）的消息切分不一致，数值用于画像不用于直接比较。
 
@@ -463,17 +463,20 @@
 7. **交互/方向类验证补课**（RL 教训）：方向、旋转、输入映射类代码必须验证**一般角度**（至少 yaw=0/90/180 三点断言期望位置），默认朝向自洽 ≠ 一般情形正确
 8. **anchored-standard-open 验证结论**：若目标是"严格官方 RL 接口开局 + 之后全开"，本预设达成且无缺陷（首轮 request 逐字节一致、晋升全开、无路径事故）；**若目标是全程 minimal 轨迹（modeltest 96-99 带），必须保持小工具面不扩大**——轨迹锚定是工具面持续约束的效应，不是一次晋升能锁定的
 
-## 附录：anchored-standard 版本形态（各会话对应的具体提交）
+## 附录：anchored-standard 版本形态（各会话对应的可复现预设文件）
 
-| 版本 | 提交 | 机制 | 使用它的会话 |
+> 本仓库的复现依据是 `agent-presets-repro/presets/` 下的**预设文件本身**（9 个自定义 + 4 个官方），安装/复现步骤见 `agent-presets-repro/README.md`。下表为各版本形态 → 仓库内文件对照。
+
+| 版本形态 | 机制 | 仓库内对应预设 | 使用它的会话 |
 | --- | --- | --- | --- |
-| modeltest 冻结快照 | xiaobright `e1277b5` + DSH `47f9438` | **纯工具面锚定**：首轮 wire 只暴露 [shell, read]，首个 tool/call 后恢复 25 工具；system prompt = minimal 完整版；不拦任何注入、无 cap | Project2 98/99（8/14 双跑）✅ |
-| 加固 | `1154719` | promoteOn: either（首轮无工具调用也不卡死）+ 防呆降级 | — |
-| 旧版（fork 基线） | `7f49fb9` | 工具过滤保留 + 首轮 maxTokens=1024 cap + 首轮剥离 skill-catalog 与 agent-instructions 注入 | B1（`d187e44`/`c774e60` 形态）、B2 短会话 `bd2f9515` |
-| 演进 | `65ca3ce` / `c774e60` / `a1e1c1d` / `67c0ee3` | 抑制自动注入上下文 / prepend 时序修复 / minimal 真实工具 schema / 晋升后低注入 | B2（修复后）、B3 |
-| Windows bash 工具 | upstream `41f836e`（PR #21 `f76e5ae`） | custom-bash（PTY-free Minimal schema，bashPath 配置） | UP |
-| **当前安装** | lscatfish `2fe098a`（与安装目录逐字节一致） | = 工具过滤 + 注入剥离；**cap 已关**（= 评测版的无 cap 形态） | B2/B3/T1/T2/T3/B+T/PA |
-| Git Bash 变体 | lscatfish `bf1f9b7`（路径约定修复 `ed8c747`） | anchored-standard-gitbash：shell 工具换成 custom-bash（bashPath=`D:\Git\bin\bash.exe`） | BB |
-| **anchored-standard-open** | lscatfish `92cb9c0` | **首轮 bootstrapTools `[bash, str_replace_editor]`（官方 minimal RL 接口，一句 persona 零注入）+ promoteOn: either 晋升后 63 工具全开（无 resident/unlockedFor 隐藏组件）+ custom-bash 路径约定修复版** | RL |
+| modeltest 冻结快照（外部评测） | **纯工具面锚定**：首轮 wire 只暴露 [shell, read]，首个 tool/call 后恢复 25 工具；system prompt = minimal 完整版；不拦任何注入、无 cap | 无仓库内文件（modeltest 项目私有，形态 ≈ anchored-standard 早期） | Project2 98/99（外部评测，非本仓库会话） |
+| 旧版（cap 1024） | 工具过滤保留 + 首轮 maxTokens=1024 cap + 首轮剥离 skill-catalog 与 agent-instructions 注入 | `presets/custom/anchored-standard-old/` | B1 |
+| 演进 / 当前安装（修复版） | prepend 时序修复 + minimal 真实工具 schema + 晋升后低注入 + **cap 关闭** | `presets/custom/anchored-standard/` | B2、B3 |
+| upstream main 形态 | custom-bash（Windows bash，PTY-free Minimal schema，bashPath 配置）+ `str_replace_editor` + 晋升后低注入（dev-tool-search / skill-search / instruction-hint / compaction-epoch） | `presets/custom/anchored-standard-upstream/` | UP |
+| Git Bash 变体 | shell 换成 custom-bash（bashPath=`D:\Git\bin\bash.exe`）+ Windows/MSYS 路径约定修复 | `presets/custom/anchored-standard-gitbash/` | BB |
+| **anchored-standard-open** | **首轮 bootstrapTools `[bash, str_replace_editor]`（官方 minimal RL 接口，一句 persona 零注入）+ promoteOn: either 晋升后 63 工具全开（无 resident/unlockedFor 隐藏组件）+ custom-bash 路径约定修复版** | `presets/custom/anchored-standard-open/` | RL |
+| zero-anchored-standard / -b | 注入一轮零工具锚定（固定用户消息）+ A/B 推理契约 | `presets/custom/zero-anchored-standard/`、`presets/custom/zero-anchored-standard-b/` | T2 / T1、B+T |
+| standard-we-contract / -b | 完整 Standard 工具 + 系统提示常驻推理契约（A：we 型 / B：禁 let me） | `presets/custom/standard-we-contract/`、`presets/custom/standard-we-contract-b/` | T3 |
+| standard（官方） | DeepSeek Harness 官方标准预设（完整系统提示词） | `presets/shipped/standard/` | PA |
 
-**场景区别一句话**：B1/UP/RL 首轮都是"只给 2 个工具、之后恢复全量"（B1=[pwsh,read]、UP=[bash,editor]、RL=[bash,editor]）；T1/T2/B+T 首轮"0 个工具 + 注入风格要求"；T3/PA 首轮"61 个工具直接全开"。98/99 分数绑定在评测版形态（`e1277b5`），当前安装形态（`2fe098a`）从未在 Project2 同场验证；RL 的轨迹中间带（we 1.74 / let me 0.26）说明 anchored-standard-open 的锚定只作用于首轮——**要全程 minimal 轨迹须保持小工具面**。
+**场景区别一句话**：B1/UP/RL 首轮都是"只给 2 个工具、之后恢复全量"（B1=[pwsh,read]、UP=[bash,editor]、RL=[bash,editor]）；T1/T2/B+T 首轮"0 个工具 + 注入风格要求"；T3/PA 首轮"61 个工具直接全开"。modeltest 的 98/99 分数绑定在外部评测形态（不在本仓库），本仓库各预设从未在 Project2 同场验证；RL 的轨迹中间带（we 1.74 / let me 0.26）说明 anchored-standard-open 的锚定只作用于首轮——**要全程 minimal 轨迹须保持小工具面**。
