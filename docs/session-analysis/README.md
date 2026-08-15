@@ -16,6 +16,7 @@
 | [prompt-adding-analysis-20260815.md](prompt-adding-analysis-20260815.md) | prompt-adding（标准模式+首块提示词）：TDD+texel 验证、黑屏根因（循环未启动）|
 | [baseline-bash-session-analysis-20260816.md](baseline-bash-session-analysis-20260816.md) | baseline-bash（anchored-standard-gitbash 首跑）：路径事故思维链、flipY 渲染调试链、potential 缺预判 |
 | [rl-open-session-analysis-20260816.md](rl-open-session-analysis-20260816.md) | RL-open（anchored-standard-open 首跑）：官方 minimal 接口锚定实测、方向解算 yaw=0 盲区、水系统性实现 |
+| [user-playtest-records-20260816.md](user-playtest-records-20260816.md) | **用户逐会话实测记录（2026-08-16 全量回测）**：11 个游戏逐一实机体验，功能项 × 会话矩阵（评级 11/11 与综合报告一致；新事实：矿石缺失普遍、生存模式仅 T2、水交互 vs 水渲染区分） |
 | [COMPREHENSIVE-REPORT-20260815.md](COMPREHENSIVE-REPORT-20260815.md) | **综合报告（正式版）**：十一会话启动说明 + 交付实测 + 总表 + 宏观/微观全量结果 + modeltest 交叉验证 + 版本形态附录 |
 
 ## 核心结论汇总
