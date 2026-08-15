@@ -39,6 +39,18 @@ agent-presets-repro/presets/custom/
 
 安装/复现步骤见 `agent-presets-repro/README.md`。
 
+## 分析文档（思维链研究）
+
+11 个会话的思维链分析（宏观轨迹 + 微观指纹 + 交付实测 + 结论边界）在：
+
+```
+docs/session-analysis/
+```
+
+- `COMPREHENSIVE-REPORT-20260815.md` — **综合报告（正式版）**：十一会话启动说明、许愿式生成实验性质说明（0.4）、结论边界与免责声明（0.5）、交付实测、总表、宏观/微观全量结果、modeltest 交叉验证、版本形态附录
+- `rl-open-session-analysis-20260816.md` — RL-open（anchored-standard-open 首跑）单会话分析
+- 其余各会话单文档与指纹过程文档，索引见 `docs/session-analysis/README.md`
+
 ## 恢复某个实验目录的原始 git 历史
 
 各目录原来的 `.git` 已打包为 bundle 保存在 `preserved-git-history/`。例如恢复 `RL-open`：
