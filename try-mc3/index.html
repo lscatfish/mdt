@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebCraft · 网页版我的世界</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect x='1' y='1' width='14' height='14' fill='%2379bd4a'/><rect x='1' y='1' width='14' height='4' fill='%238fd05c'/></svg>" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+    body { font-family: 'Courier New', ui-monospace, Consolas, monospace; color: #fff; }
+    body.playing { cursor: none; }
+    #game { display: block; width: 100%; height: 100%; }
+    #ui { position: fixed; inset: 0; pointer-events: none; }
+
+    .overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 18px; pointer-events: auto;
+      background: rgba(8, 10, 24, 0.8);
+      backdrop-filter: blur(3px);
+    }
+    .hidden { display: none !important; }
+    h1 { font-size: 46px; letter-spacing: 3px; color: #9fe8ff; text-shadow: 0 4px 0 #000, 0 0 28px rgba(120, 200, 255, 0.65); }
+    .sub { font-size: 15px; color: #cfe8d0; letter-spacing: 1px; }
+    button {
+      font-family: inherit; font-size: 17px; letter-spacing: 1px;
+      color: #fff; background: #5c8a3f;
+      border: 2px solid #000; padding: 12px 34px; cursor: pointer;
+      box-shadow: 0 4px 0 #2f4a20, 0 0 18px rgba(120, 200, 90, 0.35);
+      transition: transform 0.06s, box-shadow 0.06s;
+    }
+    button:hover { background: #6da44a; }
+    button:active { transform: translateY(3px); box-shadow: 0 1px 0 #2f4a20; }
+    button.secondary { background: #5a6472; box-shadow: 0 4px 0 #2c323c, 0 0 18px rgba(140, 160, 200, 0.25); }
+    button.secondary:hover { background: #6d7a8c; }
+    .controls { font-size: 14px; line-height: 2; text-align: center; color: #cfe8d0; }
+    .hint { font-size: 12px; color: #9aa8b8; }
+
+    #crosshair { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    #crosshair .h, #crosshair .v { position: absolute; background: #fff; mix-blend-mode: difference; }
+    #crosshair .h { width: 16px; height: 2px; left: -8px; top: -1px; }
+    #crosshair .v { width: 2px; height: 16px; left: -1px; top: -8px; }
+
+    #hotbar {
+      position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+      display: flex; gap: 4px; padding: 4px;
+      background: rgba(0, 0, 0, 0.38);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .slot {
+      width: 48px; height: 48px; position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.22);
+      pointer-events: auto;
+    }
+    .slot.selected { border-color: #fff; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.95); }
+    .slot canvas { width: 44px; height: 44px; image-rendering: pixelated; display: block; }
+    .slot .num { position: absolute; top: 1px; left: 3px; font-size: 10px; text-shadow: 1px 1px 0 #000; }
+
+    #blockname {
+      position: absolute; left: 50%; bottom: 76px; transform: translateX(-50%);
+      font-size: 15px; text-shadow: 1px 1px 0 #000; opacity: 0; transition: opacity 0.3s;
+    }
+    #debug {
+      position: absolute; top: 8px; left: 8px;
+      font-size: 12px; line-height: 1.55; white-space: pre;
+      background: rgba(0, 0, 0, 0.55); padding: 6px 10px;
+    }
+    #toast {
+      position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
+      font-size: 15px; background: rgba(0, 0, 0, 0.6); padding: 6px 16px;
+      opacity: 0; transition: opacity 0.25s; text-shadow: 1px 1px 0 #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="ui">
+    <div id="crosshair" class="hidden"><div class="h"></div><div class="v"></div></div>
+    <div id="blockname"></div>
+    <div id="hotbar" class="hidden"></div>
+    <div id="debug" class="hidden"></div>
+    <div id="toast"></div>
+
+    <div id="start" class="overlay">
+      <h1>⛏ WebCraft</h1>
+      <div class="sub">网页版「我的世界」· 体素沙盒</div>
+      <button id="btn-start">▶ 开始游戏</button>
+      <button id="btn-new" class="secondary">🌱 新建世界</button>
+      <div class="controls">
+        WASD 移动 · 空格 跳跃 / 双击空格 飞行 · 鼠标左键 破坏 · 右键 放置<br />
+        1-9 / 滚轮 选择方块 · 中键 取方块 · Ctrl 疾跑 · F 切换飞行 · M 静音 · F3 调试 · Esc 暂停
+      </div>
+    </div>
+
+    <div id="pause" class="overlay hidden">
+      <h1>已暂停</h1>
+      <button id="btn-resume">▶ 继续游戏</button>
+      <div class="hint">按 Esc 或点击按钮回到游戏</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

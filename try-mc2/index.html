@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>网页我的世界 · WebCraft</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Crect%20width='16'%20height='16'%20fill='%2367b83f'/%3E%3Crect%20y='8'%20width='16'%20height='8'%20fill='%238a5a33'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair">
+      <div class="ch-plus"></div>
+    </div>
+    <div id="break-progress" class="hidden"><div id="break-fill"></div></div>
+
+    <div id="health">
+      <span id="hearts"></span>
+    </div>
+
+    <div id="hotbar">
+      <div class="slot" data-slot="0"><span class="slot-num">1</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="1"><span class="slot-num">2</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="2"><span class="slot-num">3</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="3"><span class="slot-num">4</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="4"><span class="slot-num">5</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="5"><span class="slot-num">6</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="6"><span class="slot-num">7</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="7"><span class="slot-num">8</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div class="slot" data-slot="8"><span class="slot-num">9</span><span class="slot-icon"></span><span class="slot-count"></span></div>
+      <div id="slot-name"></div>
+    </div>
+
+    <div id="debug" class="hidden"></div>
+    <div id="toasts"></div>
+    <div id="save-toast" class="hidden">✓ 世界已保存</div>
+  </div>
+
+  <div id="loading" class="overlay">
+    <h1 class="title">网页我的世界</h1>
+    <div class="subtitle">WebCraft</div>
+    <div id="load-progress">正在生成世界…</div>
+  </div>
+
+  <div id="start-screen" class="overlay hidden">
+    <h1 class="title">网页我的世界</h1>
+    <div class="subtitle">WebCraft · 一个浏览器里的体素世界</div>
+    <div class="controls-card">
+      <h2>操作说明</h2>
+      <ul>
+        <li><b>W A S D</b> 移动 &nbsp; <b>鼠标</b> 视角</li>
+        <li><b>空格</b> 跳跃 / 游泳 &nbsp; <b>Shift</b> 潜行 &nbsp; <b>R</b> 疾跑</li>
+        <li><b>左键</b> 挖方块 &nbsp; <b>右键</b> 放方块 &nbsp; <b>中键</b> 取方块</li>
+        <li><b>滚轮 / 1-9</b> 选择方块 &nbsp; <b>C</b> 创造/生存</li>
+        <li><b>F3</b> 调试信息 &nbsp; <b>M</b> 声音 &nbsp; <b>Esc</b> 暂停</li>
+      </ul>
+    </div>
+    <button id="btn-start" class="mc-btn">开始游戏</button>
+    <div class="footer-note">建议使用桌面端 Chrome / Edge,开启声音体验更佳</div>
+  </div>
+
+  <div id="pause-screen" class="overlay hidden">
+    <h1 class="title">游戏暂停</h1>
+    <button id="btn-resume" class="mc-btn">继续游戏</button>
+    <button id="btn-new-world" class="mc-btn gray">重新生成世界</button>
+    <button id="btn-sound" class="mc-btn gray">声音: 开</button>
+    <div class="controls-card small">
+      <ul>
+        <li><b>W A S D</b> 移动 · <b>空格</b> 跳跃 · <b>Shift</b> 潜行 · <b>R</b> 疾跑</li>
+        <li><b>左键</b> 挖 · <b>右键</b> 放 · <b>中键</b> 取方块 · <b>滚轮</b> 换方块</li>
+        <li><b>C</b> 切换模式 · <b>F3</b> 调试 · <b>M</b> 静音</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

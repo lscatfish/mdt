@@ -1,0 +1,63 @@
+{
+  "session_zip": "dsh-session-session-347ab4b5-2377-456a-b0fb-102550be57a8.zip",
+  "total_lines": 5734,
+  "header": {
+    "id": "session-347ab4b5-2377-456a-b0fb-102550be57a8",
+    "createdAt": 1786794728127,
+    "cwd": "D:\\code\\mdt\\baseline-upstream",
+    "agentPreset": "zero-anchored-standard-b"
+  },
+  "permission_preset": "workspace-write",
+  "sandbox_mode": "workspace-write",
+  "approval_policy": "ask",
+  "agent_preset_selected": [
+    {
+      "seq": 3,
+      "agentPreset": "anchored-standard"
+    },
+    {
+      "seq": 4,
+      "agentPreset": "zero-anchored-standard-b"
+    },
+    {
+      "seq": 5,
+      "agentPreset": "anchored-standard"
+    }
+  ],
+  "end_seed_seq": null,
+  "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏",
+  "anchor_messages": [
+    {
+      "seq": 352,
+      "plugin": "user-approval",
+      "form": null,
+      "summary": null,
+      "text": "The approval policy changed from \"ask\" to \"never\" (changed by the user)."
+    }
+  ],
+  "first_request": {
+    "seq": 12,
+    "provider": "deepseek-official",
+    "model": "deepseek-v4-pro",
+    "reasoningEffort": "max",
+    "maxTokens": 256000,
+    "adapterDefaults": {
+      "maxTokens": true
+    },
+    "system": "You are a helpful software engineer assistant."
+  },
+  "all_system_prompts": [
+    {
+      "sha256_prefix": "5fab6e32f283d715",
+      "length": 46,
+      "count": 3,
+      "firstLine": "You are a helpful software engineer assistant."
+    }
+  ],
+  "first_turn": {
+    "seq": 7,
+    "turn": 1
+  },
+  "title": "你只能够修改当前目录下的文",
+  "project": "baseline-upstream"
+}

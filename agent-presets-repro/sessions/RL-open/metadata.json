@@ -1,0 +1,55 @@
+{
+  "session_zip": "dsh-session-session-fb6443f2-c7d1-4f12-ae1a-3a99a0699c00.zip",
+  "total_lines": 6570,
+  "header": {
+    "id": "session-fb6443f2-c7d1-4f12-ae1a-3a99a0699c00",
+    "createdAt": 1786822258197,
+    "cwd": "D:\\code\\mdt\\RL-open",
+    "agentPreset": "anchored-standard"
+  },
+  "permission_preset": "workspace-write",
+  "sandbox_mode": "workspace-write",
+  "approval_policy": "ask",
+  "agent_preset_selected": [
+    {
+      "seq": 3,
+      "agentPreset": "anchored-standard-open"
+    }
+  ],
+  "end_seed_seq": 4,
+  "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏",
+  "anchor_messages": [
+    {
+      "seq": 9,
+      "plugin": "user-approval",
+      "form": null,
+      "summary": null,
+      "text": "The approval policy changed from \"ask\" to \"never\" (changed by the user)."
+    }
+  ],
+  "first_request": {
+    "seq": 19,
+    "provider": "deepseek-official",
+    "model": "deepseek-v4-pro",
+    "reasoningEffort": "max",
+    "maxTokens": 256000,
+    "adapterDefaults": {
+      "maxTokens": true
+    },
+    "system": "You are a helpful software engineer assistant."
+  },
+  "all_system_prompts": [
+    {
+      "sha256_prefix": "5fab6e32f283d715",
+      "length": 46,
+      "count": 2,
+      "firstLine": "You are a helpful software engineer assistant."
+    }
+  ],
+  "first_turn": {
+    "seq": 12,
+    "turn": 1
+  },
+  "title": "你只能够修改当前目录下的文",
+  "project": "RL-open"
+}

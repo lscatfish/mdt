@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Web Minecraft — 网页版我的世界</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect x='2' y='6' width='4' height='8' fill='%237a5230'/><rect x='10' y='6' width='4' height='8' fill='%237a5230'/><rect x='2' y='2' width='12' height='4' fill='%2358a03a'/></svg>" />
+</head>
+<body>
+  <canvas id="gl"></canvas>
+  <canvas id="hud"></canvas>
+
+  <div id="hudBar">
+    <div id="buttons">
+      <button id="btnSave" title="保存存档">💾 保存</button>
+      <button id="btnLoad" title="读取存档">📂 读取</button>
+      <button id="btnMute" title="静音切换">🔊</button>
+      <button id="btnHelp" title="帮助">❓</button>
+    </div>
+  </div>
+
+  <div id="touchUI" class="hidden"></div>
+
+  <div id="overlay">
+    <div class="panel">
+      <h1>🟫 网页版我的世界</h1>
+      <p class="sub">零依赖 · 程序化生成 · 浏览器内运行</p>
+      <div class="help">
+        <p><b>WASD</b> 移动 &nbsp; <b>空格</b> 跳跃 &nbsp; <b>Shift</b> 潜行 &nbsp; <b>Ctrl</b> 疾跑 &nbsp; <b>F</b> 飞行(双击空格)</p>
+        <p><b>鼠标</b> 视角 &nbsp; <b>左键</b> 破坏方块 &nbsp; <b>右键</b> 放置方块 &nbsp; <b>滚轮/1-8</b> 选择方块</p>
+      </div>
+      <button id="btnPlay">点击开始游戏</button>
+      <p class="tiny">点击开始后将锁定鼠标，按 Esc 释放</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

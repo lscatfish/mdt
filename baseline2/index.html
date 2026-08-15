@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>WebCraft · 网页版我的世界</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+
+<div id="crosshair" class="hidden">
+  <div class="ch-h"></div>
+  <div class="ch-v"></div>
+</div>
+
+<div id="hotbar"></div>
+<div id="debug-panel" class="hidden"></div>
+<div id="toast"></div>
+<div id="pause-hint" class="hidden">点击屏幕继续游戏</div>
+
+<div id="start-screen">
+  <div class="start-box">
+    <h1>WebCraft</h1>
+    <p class="subtitle">网页版我的世界 · 无限世界 · 程序化生成</p>
+
+    <div class="row">
+      <label for="seed-input">世界种子</label>
+      <input id="seed-input" type="text" maxlength="32" spellcheck="false">
+    </div>
+
+    <button id="btn-start" class="primary">开始游戏</button>
+    <button id="btn-new" class="ghost">新世界（清除存档）</button>
+
+    <div class="controls-grid">
+      <div><b>鼠标</b> 视角 / 左键破坏 / 右键放置</div>
+      <div><b>W A S D</b> 移动</div>
+      <div><b>空格</b> 跳跃·游泳 · <b>Shift</b> 潜行</div>
+      <div><b>Ctrl</b> 疾跑 · <b>F</b> 飞行 · <b>R</b> 重生</div>
+      <div><b>1-0 / 滚轮</b> 选择方块 · <b>F3</b> 调试 · <b>M</b> 静音</div>
+    </div>
+
+    <p class="tip">存档保存在浏览器本地。双击 F 可在飞行模式下快速上升。</p>
+  </div>
+</div>
+
+<div id="touch-ui" class="hidden">
+  <div id="joy-zone">
+    <div id="joy-base"><div id="joy-knob"></div></div>
+  </div>
+  <div id="touch-look"></div>
+  <div id="touch-buttons">
+    <button id="btn-jump" class="touch-btn">跳跃</button>
+    <button id="btn-break" class="touch-btn danger">破坏</button>
+    <button id="btn-place" class="touch-btn">放置</button>
+  </div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="js/noise.js"></script>
+<script src="js/blocks.js"></script>
+<script src="js/world.js"></script>
+<script src="js/player.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/sky.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

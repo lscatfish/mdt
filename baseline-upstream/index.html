@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网页版我的世界 · WebCraft</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"><span>+</span></div>
+    <div id="debug"></div>
+    <div id="block-name"></div>
+    <div id="hotbar"></div>
+  </div>
+
+  <div id="overlay">
+    <div class="panel">
+      <h1>⛏️ WebCraft</h1>
+      <p class="sub">网页版我的世界</p>
+      <div class="controls">
+        <p><b>W A S D</b> 移动 &nbsp;·&nbsp; <b>空格</b> 跳跃</p>
+        <p><b>Shift</b> 下蹲 / 下降 &nbsp;·&nbsp; <b>F</b> 飞行 &nbsp;·&nbsp; 双击 <b>W</b> 疾跑</p>
+        <p><b>鼠标左键</b> 破坏方块 &nbsp;·&nbsp; <b>右键</b> 放置方块</p>
+        <p><b>1 - 9</b> 或 <b>滚轮</b> 选择方块</p>
+        <p class="hint">建议使用 Chrome / Edge 等桌面浏览器打开</p>
+      </div>
+      <button id="start-btn">点击开始游戏</button>
+      <p class="hint" id="lock-hint">开始后游戏会锁定鼠标，按 ESC 可释放</p>
+    </div>
+  </div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="js/noise.js"></script>
+<script src="js/blocks.js"></script>
+<script src="js/world.js"></script>
+<script src="js/player.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "web-minecraft",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "网页版我的世界 - Minecraft web clone (Three.js, voxel engine)",
+  "scripts": {
+    "start": "node tools/serve.mjs"
+  }
+}

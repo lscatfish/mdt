@@ -1,0 +1,17 @@
+{
+  "name": "webminecraft",
+  "version": "1.0.0",
+  "description": "A dependency-free voxel sandbox (Minecraft-like) that runs in the browser.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node tests/unit.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

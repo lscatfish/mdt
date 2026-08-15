@@ -1,0 +1,3 @@
+name: Standard + We 契约（实验）
+description: 完整 Standard 编码 Agent，系统提示常驻第一人称复数推理契约（we/let's，禁止 I/let me），首轮即全量工具。
+order: 7

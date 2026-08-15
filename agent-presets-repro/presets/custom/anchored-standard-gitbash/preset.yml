@@ -1,0 +1,3 @@
+name: Anchored Standard · Git Bash (experimental)
+description: Bootstrap with Git Bash/read, then expose the full Standard tool catalog after the first durable tool call or reply. Windows shell is the Git Bash at D:\Git\bin\bash.exe instead of pwsh.
+order: 6

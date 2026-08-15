@@ -1,0 +1,3 @@
+name: Anchored Standard Open (experimental)
+description: 首轮严格按官方 Minimal RL 接口启动——只给 bash + str_replace_editor 两个工具、一句 persona、无任何注入；首次工具调用或首次回复后，开放完整 Standard 工具目录，并恢复 AGENTS.md 与技能目录注入。（对比 upstream 的 resident 隐藏式：晋升后全开，无 dev_tool_search 按需解锁）
+order: 11

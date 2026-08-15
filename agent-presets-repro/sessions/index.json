@@ -1,0 +1,154 @@
+{
+  "projects": [
+    {
+      "project": "B+template",
+      "session_zip": "dsh-session-session-65f36716-2c0d-4f72-bbbb-eb98c4877079.zip",
+      "created_preset": "standard-we-contract",
+      "selected_presets": [
+        "zero-anchored-standard-b"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "baseline",
+      "session_zip": "dsh-session-session-14f893a0-82a0-4e08-bfd0-121b6d91231d.zip",
+      "created_preset": "zero-anchored-standard-b",
+      "selected_presets": [
+        "anchored-standard"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "baseline-bash",
+      "session_zip": "dsh-session-session-ff3a7c80-74d0-4679-b32c-905b1d22b070.zip",
+      "created_preset": "anchored-standard",
+      "selected_presets": [
+        "anchored-standard-gitbash"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "baseline-upstream",
+      "session_zip": "dsh-session-session-347ab4b5-2377-456a-b0fb-102550be57a8.zip",
+      "created_preset": "zero-anchored-standard-b",
+      "selected_presets": [
+        "anchored-standard",
+        "zero-anchored-standard-b",
+        "anchored-standard"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "baseline2",
+      "session_zip": "dsh-session-session-9f916db0-ab39-4620-8eb0-dd1a50fef013.zip",
+      "created_preset": "anchored-standard",
+      "selected_presets": [],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "baseline3",
+      "session_zip": "dsh-session-session-3f036483-f121-47f3-a341-c7db8bc5e9f9.zip",
+      "created_preset": "zero-anchored-standard",
+      "selected_presets": [],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "接手文件"
+    },
+    {
+      "project": "prompt-adding",
+      "session_zip": "dsh-session-session-6121afd6-32e2-4a5a-8e62-d4cdd325644c.zip",
+      "created_preset": "anchored-standard",
+      "selected_presets": [
+        "standard"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are an AI agent powered by DeepSeek Harness.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用 git 进行版本管理。请复刻一个网页版本的我的世界游戏。\r\n\r\n开始动手之前，请先在你的思考中按以下框架完成规划，然后严格按规划执行：\r\n\r\n【1. 勘察】先查看当前目录内容、可用工具与运行环境（版本管理状态、网络可用性、运行时版本），确认全部约束；不要跳过这一步直接写代码。\r\n\r\n【2. 交付物清单】明确要创建哪些文件、每个文件的职责（页面骨架、样式、游戏主逻辑、各功能模块、README、依赖文件），以及计划在哪个节点 git init / commit。\r\n\r\n【3. 功能规划】先列 MVP 核心功能（程序化地形、方块破坏/放置、第一人称移动与碰撞、准星拾取射线），再列增强功能（昼夜循环、音效、存档、触屏支持）；按\"先核心、后增强\"排序，范围要可交付。\r\n\r\n【4. 技术选型】在\"自研实现\"与\"引入依赖库\"之间权衡并说明理由——考虑离线可用性、文件体积、可控性；选定后不要中途反复变更。\r\n\r\n【5. 验证方案（最重要，必须写进规划）】我无法直接查看渲染画面，所以你必须建立程序化验证手段，且每个里程碑都实际运行：\r\n- 浏览器测试：页面无控制台错误；用脚本断言关键状态（玩家坐标、方块读取/写入、存档往返、碰撞落地）；\r\n- 像素级验证：用 WebGL readPixels / canvas 采样证明画面渲染出了正确内容（天空、地形、方块纹理颜色），不能只凭\"无报错\"判断渲染成功；\r\n- 几何对齐验证：方块显示位置必须与碰撞/拾取判定一致（格坐标系统一、无半格偏移）——用射线命中坐标与网格边界对比，专门排查\"显示与逻辑错位\"；\r\n- 发现问题先定位修复、再继续下一步，不允许带着已知问题往下推进。\r\n\r\n【6. 收尾】交付前做一次干净页面的完整回归（新开页面、无报错、核心流程可玩一遍）、清理无用文件、git 提交完整、README 写清运行方式与操作说明。"
+    },
+    {
+      "project": "RL-open",
+      "session_zip": "dsh-session-session-fb6443f2-c7d1-4f12-ae1a-3a99a0699c00.zip",
+      "created_preset": "anchored-standard",
+      "selected_presets": [
+        "anchored-standard-open"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "try-mc1",
+      "session_zip": "dsh-session-session-a0c8952d-b6f5-43a5-b2e5-9f0ae3f7e252.zip",
+      "created_preset": "standard-we-contract",
+      "selected_presets": [
+        "zero-anchored-standard-b"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "try-mc2",
+      "session_zip": "dsh-session-session-7c5cdb82-0237-45b5-9a89-07c12780dafd.zip",
+      "created_preset": "zero-anchored-standard",
+      "selected_presets": [],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are a helpful software engineer assistant.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    },
+    {
+      "project": "try-mc3",
+      "session_zip": "dsh-session-session-58fbb8be-3bdf-46b9-b548-74d2eff805f9.zip",
+      "created_preset": "zero-anchored-standard",
+      "selected_presets": [
+        "standard-we-contract"
+      ],
+      "permission": "workspace-write",
+      "sandbox": "workspace-write",
+      "approval": "ask",
+      "model": "deepseek-v4-pro",
+      "system_first_line": "You are an AI agent powered by DeepSeek Harness.",
+      "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
+    }
+  ]
+}

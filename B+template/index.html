@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebCraft · 网页版我的世界</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' rx='2' fill='%236cb85a'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%233e7c33'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-root"></div>
+
+  <!-- 开始 / 暂停菜单 -->
+  <div id="menu" class="overlay">
+    <div class="menu-panel">
+      <h1>WebCraft</h1>
+      <p class="subtitle">网页版我的世界 · 体素沙盒</p>
+      <button id="start-btn" class="btn">开始游戏</button>
+      <div class="help">
+        <h2>操作说明</h2>
+        <div class="help-grid">
+          <span><b>W A S D</b> 移动</span>
+          <span><b>鼠标</b> 视角</span>
+          <span><b>空格</b> 跳跃 / 上浮</span>
+          <span><b>Shift</b> 疾跑 / 下降</span>
+          <span><b>F</b> 切换飞行</span>
+          <span><b>左键</b> 破坏方块</span>
+          <span><b>右键</b> 放置方块</span>
+          <span><b>1–9 / 滚轮</b> 选择方块</span>
+          <span><b>Esc</b> 暂停</span>
+        </div>
+      </div>
+      <p class="hint">点击“开始游戏”后请再次点击画面锁定鼠标</p>
+    </div>
+  </div>
+
+  <!-- 准星 -->
+  <div id="crosshair" class="hidden">
+    <div class="cross-h"></div>
+    <div class="cross-v"></div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="debug" class="debug"></div>
+    <div id="block-name" class="block-name"></div>
+    <div id="hotbar" class="hotbar"></div>
+  </div>
+
+  <!-- 加载提示 -->
+  <div id="loading" class="loading">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <div id="loading-text">正在生成世界…</div>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

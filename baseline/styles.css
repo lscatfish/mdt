@@ -1,0 +1,206 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b0f14;
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+}
+
+.hidden { display: none !important; }
+
+#water-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: rgba(36, 88, 200, 0.38);
+}
+
+/* ---------- 十字准星 ---------- */
+#crosshair {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+}
+.ch-v, .ch-h {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+.ch-v { left: 9px; top: 3px; width: 2px; height: 14px; }
+.ch-h { left: 3px; top: 9px; width: 14px; height: 2px; }
+
+/* ---------- 快捷栏 ---------- */
+#hotbar {
+  position: fixed;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+  pointer-events: none;
+}
+#hotbar-slots {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(10, 10, 10, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+}
+.slot {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(30, 30, 30, 0.75);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background-size: 384px 192px;
+  image-rendering: pixelated;
+  position: relative;
+}
+.slot.selected {
+  border-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+.slot .slot-num {
+  position: absolute;
+  left: 3px;
+  bottom: 1px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 1px 1px 0 #000;
+}
+#block-name {
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px #000;
+  background: rgba(10, 10, 10, 0.5);
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+/* ---------- 调试信息 ---------- */
+#debug {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #e8f4ff;
+  font: 12px/1.4 Consolas, monospace;
+  text-shadow: 1px 1px 1px #000;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* ---------- 帮助面板 ---------- */
+#help {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  background: rgba(12, 14, 18, 0.92);
+  color: #e8eef5;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 22px 26px;
+  min-width: 340px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+#help h2 {
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+#help table { border-collapse: collapse; width: 100%; }
+#help td {
+  padding: 4px 8px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+#help td:first-child { color: #ffd76a; font-family: Consolas, monospace; white-space: nowrap; }
+#help button {
+  display: block;
+  margin: 14px auto 0;
+  padding: 8px 34px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* ---------- 开始 / 暂停界面 ---------- */
+#start-screen, #pause-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(80, 140, 220, 0.35), transparent 60%),
+    rgba(8, 11, 16, 0.88);
+}
+.start-panel {
+  text-align: center;
+  color: #fff;
+}
+.start-panel h1 {
+  font-size: 56px;
+  letter-spacing: 6px;
+  text-shadow: 3px 3px 0 #3b3b3b, 0 0 24px rgba(120, 200, 255, 0.5);
+  margin-bottom: 6px;
+}
+.start-panel .subtitle {
+  color: #bcd6f0;
+  margin-bottom: 26px;
+  letter-spacing: 2px;
+}
+.start-panel button {
+  font-size: 18px;
+  padding: 12px 48px;
+  margin: 6px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background: #3f9e4d;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+  transition: transform 0.08s, filter 0.08s;
+}
+.start-panel button:hover { transform: scale(1.04); filter: brightness(1.15); }
+.start-panel button.danger {
+  background: #7a2f2f;
+  font-size: 13px;
+  padding: 9px 20px;
+}
+.start-panel .hint {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #9fb3c8;
+}

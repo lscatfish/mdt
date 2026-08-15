@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebCraft — 网页版我的世界</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- 十字准星 -->
+<div id="crosshair" class="hidden">
+  <div class="ch-v"></div>
+  <div class="ch-h"></div>
+</div>
+
+<!-- 水下遮罩 -->
+<div id="water-overlay" class="hidden"></div>
+
+<!-- 快捷栏 -->
+<div id="hotbar" class="hidden">
+  <div id="hotbar-slots"></div>
+  <div id="block-name">草方块</div>
+</div>
+
+<!-- 调试信息 -->
+<div id="debug" class="hidden">
+  <span id="dbg-fps">FPS: 0</span>
+  <span id="dbg-pos">XYZ: 0 / 0 / 0</span>
+  <span id="dbg-chunks">区块: 0</span>
+</div>
+
+<!-- 帮助面板 -->
+<div id="help" class="hidden">
+  <h2>操作说明</h2>
+  <table>
+    <tr><td>W A S D</td><td>移动</td></tr>
+    <tr><td>空格</td><td>跳跃 / 飞行上升</td></tr>
+    <tr><td>Shift</td><td>潜行 / 飞行下降</td></tr>
+    <tr><td>Ctrl</td><td>疾跑</td></tr>
+    <tr><td>F 或 双击空格</td><td>切换飞行</td></tr>
+    <tr><td>鼠标左键</td><td>破坏方块（按住连挖）</td></tr>
+    <tr><td>鼠标右键</td><td>放置方块</td></tr>
+    <tr><td>滚轮 / 数字键 1-9</td><td>选择方块</td></tr>
+    <tr><td>M</td><td>声音开关</td></tr>
+    <tr><td>H</td><td>显示 / 隐藏本面板</td></tr>
+    <tr><td>Esc</td><td>暂停 / 释放鼠标</td></tr>
+  </table>
+  <button id="help-close">关闭</button>
+</div>
+
+<!-- 开始界面 -->
+<div id="start-screen">
+  <div class="start-panel">
+    <h1>WebCraft</h1>
+    <p class="subtitle">网页版《我的世界》克隆</p>
+    <button id="btn-play">进入游戏</button>
+    <p class="hint">进入后鼠标将被锁定 · 按 Esc 暂停</p>
+    <button id="btn-reset-world" class="danger">删除存档并新建世界</button>
+  </div>
+</div>
+
+<!-- 暂停界面 -->
+<div id="pause-screen" class="hidden">
+  <div class="start-panel">
+    <h1>已暂停</h1>
+    <button id="btn-resume">继续游戏</button>
+    <button id="btn-pause-reset" class="danger">删除存档并新建世界</button>
+    <p class="hint">存档会自动保存在浏览器中</p>
+  </div>
+</div>
+
+<script src="js/noise.js"></script>
+<script src="js/textures.js"></script>
+<script src="js/world.js"></script>
+<script src="js/mesher.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/player.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

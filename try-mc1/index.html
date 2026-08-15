@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网页版我的世界</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:,">
+  <script type="importmap">
+    { "imports": { "three": "./lib/three.module.min.js" } }
+  </script>
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+
+  <!-- 游戏 HUD -->
+  <div id="hud" hidden>
+    <div id="crosshair"></div>
+    <div id="debug"></div>
+    <div id="hotbar"></div>
+    <div id="toast"></div>
+  </div>
+
+  <!-- 暂停菜单 -->
+  <div id="pause-menu" class="overlay" hidden>
+    <div class="panel">
+      <h2>游戏暂停</h2>
+      <button id="btn-resume" class="btn primary">▶ 继续游戏</button>
+      <button id="btn-save" class="btn">💾 保存世界</button>
+      <button id="btn-menu" class="btn">⌂ 返回主菜单</button>
+      <p class="note">按 Esc 或点击「继续游戏」重新捕获鼠标</p>
+    </div>
+  </div>
+
+  <!-- 主菜单 -->
+  <div id="menu" class="overlay">
+    <div class="panel">
+      <h1 class="game-title">网页版我的世界</h1>
+      <p class="subtitle">WEB MINECRAFT CLONE</p>
+      <div class="seed-row">
+        <input id="seed-input" type="text" placeholder="世界种子（留空则随机生成）" spellcheck="false" autocomplete="off">
+      </div>
+      <button id="btn-new" class="btn primary">⛏ 开始新世界</button>
+      <button id="btn-continue" class="btn" hidden>▶ 继续上次的游戏</button>
+      <div class="controls-help">
+        <div><b>移动</b>：<kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 行走 · <kbd>Ctrl</kbd> 疾跑</div>
+        <div><b>视角</b>：鼠标 · <b>跳跃/上游</b>：<kbd>空格</kbd> · <b>飞行</b>：双击空格或 <kbd>F</kbd>（<kbd>Shift</kbd> 下降）</div>
+        <div><b>交互</b>：左键 破坏 · 右键 放置 · 中键 选取 · <kbd>1</kbd>-<kbd>9</kbd>/滚轮 选方块</div>
+        <div><b>其他</b>：<kbd>F3</kbd> 调试信息 · <kbd>Esc</kbd> 暂停菜单 · 世界自动保存</div>
+      </div>
+      <p id="menu-note" class="note"></p>
+    </div>
+  </div>
+
+  <!-- 加载遮罩 -->
+  <div id="loading" class="overlay" hidden>
+    <div class="spinner"></div>
+    <div id="loading-text">正在生成世界…</div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

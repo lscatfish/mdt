@@ -1,0 +1,13 @@
+{
+  "name": "webcraft",
+  "version": "1.0.0",
+  "private": true,
+  "description": "一个网页版《我的世界》风格体素沙盒游戏",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "three": "^0.178.0"
+  }
+}

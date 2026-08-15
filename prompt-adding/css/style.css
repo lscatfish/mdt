@@ -1,0 +1,114 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b1026;
+  font-family: "Segoe UI", system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+#hud { position: fixed; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+
+/* ---- top HUD bar ---- */
+#hudBar {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#buttons { display: flex; gap: 6px; pointer-events: auto; }
+#buttons button {
+  background: rgba(0, 0, 0, 0.45);
+  color: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+#buttons button:hover { background: rgba(60, 60, 60, 0.7); }
+
+.hidden { display: none !important; }
+
+/* ---- start overlay ---- */
+#overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 12, 32, 0.78);
+  z-index: 20;
+  cursor: pointer;
+}
+.panel {
+  background: rgba(20, 26, 48, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 34px 44px;
+  text-align: center;
+  color: #e8ecf8;
+  max-width: 560px;
+}
+.panel h1 { font-size: 28px; margin-bottom: 4px; }
+.panel .sub { color: #9fb0d8; font-size: 13px; margin-bottom: 18px; }
+.panel .help p { font-size: 13px; color: #c6d0ea; margin: 6px 0; }
+.panel .help b { color: #ffd76e; }
+#btnPlay {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 34px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(#59a53f, #3d7d2c);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #2c5c1f;
+}
+#btnPlay:hover { filter: brightness(1.1); }
+.panel .tiny { margin-top: 12px; font-size: 11px; color: #7d89ab; }
+
+/* ---- touch controls ---- */
+#touchUI { position: fixed; inset: 0; z-index: 5; pointer-events: none; }
+#touchUI .stick {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+#touchUI .stick .knob {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  left: 31px;
+  top: 31px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+#touchUI .tbtn {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 20px;
+  pointer-events: auto;
+  touch-action: none;
+}
+#touchUI .tbtn:active { background: rgba(255, 255, 255, 0.3); }

@@ -1,0 +1,3 @@
+name: Zero-Anchored B 契约（实验）
+description: 注入一轮零工具锚定（宽松推理契约：允许 I/I'll/we，仅禁 let me，对齐灰测 I 风格），随后开放完整 Standard 工具目录。
+order: 9

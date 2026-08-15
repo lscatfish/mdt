@@ -1,0 +1,57 @@
+{
+  "session_zip": "dsh-session-session-7c5cdb82-0237-45b5-9a89-07c12780dafd.zip",
+  "total_lines": 9434,
+  "header": {
+    "id": "session-7c5cdb82-0237-45b5-9a89-07c12780dafd",
+    "createdAt": 1786783658613,
+    "cwd": "D:\\code\\try-mc2",
+    "agentPreset": "zero-anchored-standard"
+  },
+  "permission_preset": "workspace-write",
+  "sandbox_mode": "workspace-write",
+  "approval_policy": "ask",
+  "agent_preset_selected": [],
+  "end_seed_seq": 3,
+  "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏",
+  "anchor_messages": [
+    {
+      "seq": 5,
+      "plugin": "anchor-turn",
+      "form": "notice",
+      "summary": "zero-tool anchor turn",
+      "text": "<system-reminder>\nSession reasoning contract (applies to every turn, including tool turns, until the session ends):\nreason in first-person plural only — \"we\", \"let's\", \"our\".\nNever use first-person singular — \"I\", \"let me\", \"my\".\nBegin every analysis with \"We need\". This is the working mode of this session, not optional style.\n</system-reminder>"
+    },
+    {
+      "seq": 4439,
+      "plugin": "user-approval",
+      "form": null,
+      "summary": null,
+      "text": "The approval policy changed from \"ask\" to \"never\" (changed by the user)."
+    }
+  ],
+  "first_request": {
+    "seq": 10,
+    "provider": "deepseek-official",
+    "model": "deepseek-v4-pro",
+    "reasoningEffort": "max",
+    "maxTokens": 256000,
+    "adapterDefaults": {
+      "maxTokens": true
+    },
+    "system": "You are a helpful software engineer assistant."
+  },
+  "all_system_prompts": [
+    {
+      "sha256_prefix": "5fab6e32f283d715",
+      "length": 46,
+      "count": 2,
+      "firstLine": "You are a helpful software engineer assistant."
+    }
+  ],
+  "first_turn": {
+    "seq": 6,
+    "turn": 1
+  },
+  "title": "你只能够修改当前目录下的文",
+  "project": "try-mc2"
+}

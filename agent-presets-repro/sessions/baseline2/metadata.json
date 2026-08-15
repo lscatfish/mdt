@@ -1,0 +1,50 @@
+{
+  "session_zip": "dsh-session-session-9f916db0-ab39-4620-8eb0-dd1a50fef013.zip",
+  "total_lines": 8773,
+  "header": {
+    "id": "session-9f916db0-ab39-4620-8eb0-dd1a50fef013",
+    "createdAt": 1786799231951,
+    "cwd": "D:\\code\\mdt\\baseline2",
+    "agentPreset": "anchored-standard"
+  },
+  "permission_preset": "workspace-write",
+  "sandbox_mode": "workspace-write",
+  "approval_policy": "ask",
+  "agent_preset_selected": [],
+  "end_seed_seq": 3,
+  "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏",
+  "anchor_messages": [
+    {
+      "seq": 297,
+      "plugin": "user-approval",
+      "form": null,
+      "summary": null,
+      "text": "The approval policy changed from \"ask\" to \"never\" (changed by the user)."
+    }
+  ],
+  "first_request": {
+    "seq": 10,
+    "provider": "deepseek-official",
+    "model": "deepseek-v4-pro",
+    "reasoningEffort": "max",
+    "maxTokens": 256000,
+    "adapterDefaults": {
+      "maxTokens": true
+    },
+    "system": "You are a helpful software engineer assistant."
+  },
+  "all_system_prompts": [
+    {
+      "sha256_prefix": "5fab6e32f283d715",
+      "length": 46,
+      "count": 2,
+      "firstLine": "You are a helpful software engineer assistant."
+    }
+  ],
+  "first_turn": {
+    "seq": 5,
+    "turn": 1
+  },
+  "title": "你只能够修改当前目录下的文",
+  "project": "baseline2"
+}
