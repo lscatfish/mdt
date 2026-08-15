@@ -221,23 +221,22 @@
 
 ## A.5 数据局限
 
-- 每配置 n=1–2；同题同渠道；anchored-standard 双跑 98/99 是 8/14 评测形态
-  （`e1277b5`，纯工具面锚定，无 cap 无注入剥离），非当前安装形态。
+- 每配置 n=1–2；同题同渠道；anchored-standard 双跑 98/99 是 8/14 的 modeltest 外部评测形态
+  （纯工具面锚定，无 cap 无注入剥离），非本仓库预设形态。
 - 句首统计只含 Top12；全词情态/`potential` 密度待原始 JSONL（私有证据目录）。
 - 跨 harness（DSH vs OpenCode）的消息切分不一致，数值用于画像不用于直接比较。
 
 ---
 
-# 附录 B：anchored-standard 版本号跟踪（2026-08-16）
+# 附录 B：anchored-standard 版本形态（对应本仓库可复现预设）
 
-| 版本 | 提交 | 机制 | 验证 |
+| 版本形态 | 机制 | 仓库内对应预设 | 验证 |
 |---|---|---|---|
-| modeltest 冻结快照 | xiaobright `e1277b5`（feat: publish）+ DSH `47f9438` | **纯工具面锚定**：首轮 wire 只暴露 [shell, read]，首个 tool/call 后恢复 25 工具；system prompt = minimal 完整版；不拦任何注入、无 cap | Project2 **98/99**（8/14 双跑）✅ |
-| 加固 | `1154719` | promoteOn: either（首轮无工具调用也不卡死）+ 防呆降级 | — |
-| 旧版（fork 基线） | `7f49fb9` | 工具过滤保留 + **新增两机制**（8/15 复现工作 issue #6）：① 首轮 maxTokens=1024 cap（复现 26/32 vs 0/5）；② 首轮剥离 skill-catalog + agent-instructions 注入（在场 0/9 → 剥离后 ~81%） | 复现实验 ✅ |
-| 演进 | `65ca3ce` / `c774e60` / `a1e1c1d` / `67c0ee3` | 抑制自动注入上下文 / prepend 时序修复 / minimal 真实工具 schema（#11）/ 晋升后低注入 | — |
-| **当前安装** | lscatfish `2fe098a`（与安装目录逐字节一致） | = 工具过滤 + 注入剥离；**cap 已关**（= 评测版的无 cap 形态） | Minecraft 9 会话（UP 无一眼可见 bug） |
+| modeltest 冻结快照 | **纯工具面锚定**：首轮 wire 只暴露 [shell, read]，首个 tool/call 后恢复 25 工具；system prompt = minimal 完整版；不拦任何注入、无 cap | 无仓库内文件（modeltest 项目私有） | Project2 **98/99**（8/14 双跑）✅ |
+| 加固 | promoteOn: either（首轮无工具调用也不卡死）+ 防呆降级 | 已并入 anchored-standard 系列 | — |
+| 旧版（cap 1024） | 工具过滤保留 + **新增两机制**（8/15 复现工作 issue #6）：① 首轮 maxTokens=1024 cap（复现 26/32 vs 0/5）；② 首轮剥离 skill-catalog + agent-instructions 注入（在场 0/9 → 剥离后 ~81%） | `agent-presets-repro/presets/custom/anchored-standard-old/` | 复现实验 ✅ |
+| 演进 / 当前安装 | 抑制自动注入上下文 / prepend 时序修复 / minimal 真实工具 schema（#11）/ 晋升后低注入 / **cap 已关** | `agent-presets-repro/presets/custom/anchored-standard/` | Minecraft 9 会话（UP 无一眼可见 bug） |
 
-**场景区别一句话**：两者首轮都是"只给 2 个工具、首轮结束后恢复 25 个"；评测版除此之外
-**什么都不做**，当前安装版**额外把首轮的 skill 目录和 AGENTS.md 注入剥掉**（cap 已关，
-与评测版一致）。98/99 分数绑定在评测版形态，当前形态从未在 Project2 同场验证。
+**场景区别一句话**：两者首轮都是"只给 2 个工具、首轮结束后恢复全量"；评测版除此之外
+**什么都不做**，当前版**额外把首轮的 skill 目录和 AGENTS.md 注入剥掉**（cap 已关，
+与评测版一致）。98/99 分数绑定在外部评测形态，本仓库预设从未在 Project2 同场验证。

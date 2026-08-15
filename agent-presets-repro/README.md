@@ -59,8 +59,8 @@ agent-presets-repro/
 | 预设 id | 说明（来自 preset.yml） |
 | --- | --- |
 | `anchored-standard` | 首轮只给 `bash`/`pwsh` + `read`，首次工具调用或首次回复后开放完整 Standard 工具目录（**当前安装版，无首轮 cap**；B2/B3 用） |
-| `anchored-standard-old` | **历史版**（源码 `c774e60` 形态）：与当前版机制相同，但首轮带 **1024 token 输出 cap**（`DEFAULT_BOOTSTRAP_MAX_TOKENS = 1024`）（**B1 用**） |
-| `anchored-standard-upstream` | **历史版**（upstream main 形态，`41f836e` + `67c0ee3` + `a1e1c1d` 之后）：首轮用官方 Minimal 真实工具对（**custom-bash Windows bash + `str_replace_editor`**）、晋升后低注入（dev-tool-search / skill-search / instruction-hint / compaction-epoch）（**UP 用**） |
+| `anchored-standard-old` | **历史版**（旧版形态）：与当前版机制相同，但首轮带 **1024 token 输出 cap**（`DEFAULT_BOOTSTRAP_MAX_TOKENS = 1024`）（**B1 用**） |
+| `anchored-standard-upstream` | **历史版**（upstream main 形态）：首轮用官方 Minimal 真实工具对（**custom-bash Windows bash + `str_replace_editor`**）、晋升后低注入（dev-tool-search / skill-search / instruction-hint / compaction-epoch）（**UP 用**） |
 | `anchored-standard-gitbash` | 同上，但 Windows shell 换成 `D:\Git\bin\bash.exe`（解决路径/目录错位问题） |
 | `anchored-standard-open` | 首轮严格用官方 Minimal 的真实工具对（`bash` + `str_replace_editor`）、一句 persona、无注入；首次工具调用或回复后**全量开放** Standard 目录，并恢复 AGENTS.md 与技能目录注入 |
 | `zero-anchored-standard` | 注入一轮**零工具锚定**（固定用户消息），随后开放完整 Standard 工具目录 |

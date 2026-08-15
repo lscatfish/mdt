@@ -18,7 +18,7 @@ header seq=1077  maxTokens=256000 tools=5  reason=change    ← 晋升
 header seq=46753 maxTokens=256000 tools=6  reason=change    ← 解锁 read_image
 ```
 
-对应 `main` 分支（upstream `67c0ee3` 后）的 `preset/agent.cordis.yml`：
+对应 upstream main 形态预设的 `agent.cordis.yml`，见 `agent-presets-repro/presets/custom/anchored-standard-upstream/`：
 
 ```yaml
 bootstrapTools: [bash, str_replace_editor]   # Minimal 真实工具对

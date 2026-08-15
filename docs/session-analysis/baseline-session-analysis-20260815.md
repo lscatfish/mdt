@@ -17,7 +17,7 @@ header seq=10  maxTokens=1024  tools=2  reason=initial   ← 第一轮
 header seq=1051 maxTokens=256000 tools=61 reason=change  ← 用户说"继续"后晋升
 ```
 
-对应仓库 `7f49fb9` 时代的 `preset/agent.cordis.yml`：
+对应旧版预设（首轮 cap 1024）的 `agent.cordis.yml`，见 `agent-presets-repro/presets/custom/anchored-standard-old/`：
 
 ```yaml
 shellTools: [bash, pwsh]

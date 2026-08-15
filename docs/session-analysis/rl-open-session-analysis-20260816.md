@@ -124,7 +124,7 @@ playwright 74 次（evaluate 39 为主）重验证；完成报告逐项声明（
 
 1. **anchored-standard-open 预设机制全部按设计工作**：首轮 request = 官方 minimal 接口（bash +
    str_replace_editor + 一句 persona + 零注入）、step 2 晋升全开（63 工具 + skill 注入恢复）、无
-   resident 隐藏组件、Git Bash 路径约定修复版（ed8c747）全程无路径事故。**预设本身无缺陷**。
+   resident 隐藏组件、Git Bash 路径约定修复版全程无路径事故。**预设本身无缺陷**。
 2. **但"首轮锚定"在轨迹层面只产生微弱残留**（we 1.74 / let me 0.26 均落中间带）——**锚定效应与工具面
    持续时间成正比**：旧预设全程小工具面 → 全程 minimal 轨迹；新预设晋升即全开 → 轨迹立即回归
    standard 系。若目标是"全程 minimal 轨迹"，需要保持小工具面；若目标是"严格官方 RL 接口开局"，本预设
