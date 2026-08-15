@@ -1,15 +1,15 @@
-# Embodied-Intelligence 会话开头核对
+# baseline3 会话开头核对
 
-- 会话文件：`dsh-session-session-3f036483-f121-47f3-a341-c7db8bc5e9f9.zip`
-- 会话 ID：`session-3f036483-f121-47f3-a341-c7db8bc5e9f9`
-- 创建时预设（session 头部 agentPreset）：`zero-anchored-standard`
+- 会话文件：`dsh-session-session-d5cc2a80-1bb5-4c58-b9fa-0d13e20dce4e.zip`
+- 会话 ID：`session-d5cc2a80-1bb5-4c58-b9fa-0d13e20dce4e`
+- 创建时预设（session 头部 agentPreset）：`anchored-standard`
 - 会话内切换（agent-preset/selected）：无
 - 权限预设：`workspace-write`；沙箱：`workspace-write`；批准策略：`ask`
-- 第一条用户任务：接手文件
-- 锚定/契约注入（anchor-turn）：
+- 第一条用户任务：你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏
+- 锚定/契约注入（user-approval）：
 
 ```
-This round is a test. Tools are not open yet; all tools will open next round.
+The approval policy changed from "ask" to "never" (changed by the user).
 ```
 - 首次请求：`deepseek-official` / `deepseek-v4-pro` / reasoning=max / maxTokens=256000`
 

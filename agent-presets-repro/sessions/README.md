@@ -10,7 +10,7 @@
 | baseline-bash | `anchored-standard` | `anchored-standard-gitbash` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |
 | baseline-upstream | `zero-anchored-standard-b` | `anchored-standard → zero-anchored-standard-b → anchored-standard` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |
 | baseline2 | `anchored-standard` | `—` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |
-| baseline3 | `zero-anchored-standard` | `—` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |
+| baseline3 | `anchored-standard` | `—` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |
 | prompt-adding | `anchored-standard` | `standard` | `workspace-write` / `ask` | You are an AI agent powered by DeepSeek Harness. |
 | RL-open | `anchored-standard` | `anchored-standard-open` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |
 | try-mc1 | `standard-we-contract` | `zero-anchored-standard-b` | `workspace-write` / `ask` | You are a helpful software engineer assistant. |

@@ -1,29 +1,29 @@
 {
-  "session_zip": "dsh-session-session-3f036483-f121-47f3-a341-c7db8bc5e9f9.zip",
-  "total_lines": 8821,
+  "session_zip": "dsh-session-session-d5cc2a80-1bb5-4c58-b9fa-0d13e20dce4e.zip",
+  "total_lines": 8043,
   "header": {
-    "id": "session-3f036483-f121-47f3-a341-c7db8bc5e9f9",
-    "createdAt": 1786776604465,
-    "cwd": "D:\\code\\Embodied-Intelligence",
-    "agentPreset": "zero-anchored-standard"
+    "id": "session-d5cc2a80-1bb5-4c58-b9fa-0d13e20dce4e",
+    "createdAt": 1786801608926,
+    "cwd": "D:\\code\\mdt\\baseline3",
+    "agentPreset": "anchored-standard"
   },
   "permission_preset": "workspace-write",
   "sandbox_mode": "workspace-write",
   "approval_policy": "ask",
   "agent_preset_selected": [],
-  "end_seed_seq": null,
-  "first_user_task": "接手文件",
+  "end_seed_seq": 98052,
+  "first_user_task": "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏",
   "anchor_messages": [
     {
-      "seq": 4,
-      "plugin": "anchor-turn",
-      "form": "notice",
-      "summary": "zero-tool anchor turn",
-      "text": "This round is a test. Tools are not open yet; all tools will open next round."
+      "seq": 7,
+      "plugin": "user-approval",
+      "form": null,
+      "summary": null,
+      "text": "The approval policy changed from \"ask\" to \"never\" (changed by the user)."
     }
   ],
   "first_request": {
-    "seq": 11,
+    "seq": 17,
     "provider": "deepseek-official",
     "model": "deepseek-v4-pro",
     "reasoningEffort": "max",
@@ -42,9 +42,9 @@
     }
   ],
   "first_turn": {
-    "seq": 5,
+    "seq": 10,
     "turn": 1
   },
-  "title": "接手文件",
+  "title": "你只能够修改当前目录下的文",
   "project": "baseline3"
 }

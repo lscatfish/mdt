@@ -29,11 +29,13 @@
 agent-presets-repro/sessions/README.md
 ```
 
-7 个自定义预设的完整定义（`preset.yml` + `agent.cordis.yml` + 插件 `.mjs`）在：
+9 个自定义预设的完整定义（`preset.yml` + `agent.cordis.yml` + 插件 `.mjs`）在：
 
 ```
 agent-presets-repro/presets/custom/
 ```
+
+其中 `anchored-standard-old`（B1 用，首轮 cap 1024）与 `anchored-standard-upstream`（UP 用，custom-bash + 低注入）为按会话实际使用的源码历史形态导出的版本，与当前安装版 `anchored-standard`（B2/B3 用）不同。
 
 安装/复现步骤见 `agent-presets-repro/README.md`。
 
