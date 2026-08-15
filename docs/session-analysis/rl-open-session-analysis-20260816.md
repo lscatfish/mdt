@@ -1,6 +1,6 @@
 # RL-open 会话思维链分析：anchored-standard-open 首跑（2026-08-16）
 
-对象：`D:\code\mdt\RL-open`（Minecraft 复刻），预设 `anchored-standard-open`（新预设首跑：首轮严格官方
+对象：`RL-open/`（Minecraft 复刻），预设 `anchored-standard-open`（新预设首跑：首轮严格官方
 Minimal RL 接口锚定 + 晋升后全开），DeepSeek V4 Pro / reasoningEffort=max / Windows。会话 `fb6443f2`
 （3:30 起，单 turn，126 steps，无追问轮）。
 

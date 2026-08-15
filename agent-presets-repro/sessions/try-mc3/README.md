@@ -1,5 +1,7 @@
 # try-mc3 会话开头核对
 
+> 下方 system 提示词为**会话原始记录**（首次 request/header 原文），其中 `D:\code\...` 等路径为当时实验环境的工作目录，非本仓库路径。
+
 - 会话文件：`dsh-session-session-58fbb8be-3bdf-46b9-b548-74d2eff805f9.zip`
 - 会话 ID：`session-58fbb8be-3bdf-46b9-b548-74d2eff805f9`
 - 创建时预设（session 头部 agentPreset）：`zero-anchored-standard`

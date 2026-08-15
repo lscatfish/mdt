@@ -1,9 +1,9 @@
 # baseline-bash 会话思维链分析：anchored-standard-gitbash 首跑（2026-08-16）
 
-对象：`D:\code\mdt\baseline-bash`（Minecraft 复刻），预设 `anchored-standard-gitbash`（新预设首跑），
+对象：`baseline-bash/`（Minecraft 复刻），预设 `anchored-standard-gitbash`（新预设首跑），
 DeepSeek V4 Pro / reasoningEffort=max / Windows。会话 `ff3a7c80`（0:53–1:27，约 34 分钟，151 steps）。
 
-用户观察：**搞错目录**（项目一度落在 `D:\d\code\...`，会话末尾已 git clone 迁移回 `D:\code\mdt\baseline-bash`）；
+用户观察：**搞错目录**（项目一度落在 `D:\d\code\...`，会话末尾已 git clone 迁移回 `baseline-bash/`）；
 **区块渲染有问题 + 破坏方块后表面渲染层残留**（用户实机：挖掉的物块那一层还在画面上，判断"应该是整个渲染机制全有问题"）。
 模型曾修复一次渲染问题（flipY 全黑），但用户实机确认仍有区块渲染与破坏残留问题。本文只分析思维链。
 
@@ -16,7 +16,7 @@ DeepSeek V4 Pro / reasoningEffort=max / Windows。会话 `ff3a7c80`（0:53–1:2
 - 156 次工具调用：bash 43、write 19、edit 11、read 2、glob 1、playwright 系 79（evaluate 50 为主）、
   read_image 1。Git Bash 正常执行（MSYS 路径、heredoc、nohup 均可用）。
 - 交付：项目先落 `D:\d\code\mdt\baseline-bash`（路径事故），会话末尾（1:41）用 `git clone`
-  **迁移回 `D:\code\mdt\baseline-bash`**，3 个提交（7fdc182 / 209e24e / f045dca）。
+  **迁移回 `baseline-bash/`**，3 个提交（7fdc182 / 209e24e / f045dca）。
 
 ## 2. 微观指纹（交付 Context 164,358 tokens；密度 = 次/1k tokens，大小写不敏感口径）
 

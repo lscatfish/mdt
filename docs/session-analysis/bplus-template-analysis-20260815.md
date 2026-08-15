@@ -1,6 +1,6 @@
 # B+template 会话分析：草方块方向 bug + 思维链 + 微观指纹（2026-08-15）
 
-会话：`65f36716`（--D-code-mdt-B~002Btemplate--），预设 zero-anchored-standard-b（B 契约 + 模板），交付目录 D:\code\mdt\B+template。
+会话：`65f36716`（--D-code-mdt-B~002Btemplate--），预设 zero-anchored-standard-b（B 契约 + 模板），交付目录 `B+template/`。
 
 ## 1. 会话总览
 

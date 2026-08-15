@@ -1,6 +1,6 @@
 # Upstream 版 anchored-standard 会话分析（2026-08-15）
 
-**会话：** `session-347ab4b5`（项目 `D:\code\mdt\baseline-upstream`，upstream 最新版 anchored-standard）
+**会话：** `session-347ab4b5`（项目 `baseline-upstream/`，upstream 最新版 anchored-standard）
 **任务：** "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
 **结论先行：** 风格指纹完美（we=73→96 / letMe=1，复刻 98/99），
 但**晋升后工具屏蔽卡死了交付**——模型只有 bash/str_replace_editor/3 个 discovery 工具，
@@ -98,7 +98,7 @@ dev_tool_search 调用：`{"query": "read image file screenshot", "toolNames": [
 
 ## 6. 数据出处
 
-- 会话日志：`C:\Users\25619\.dsh\sessions\--D-code-mdt-baseline-upstream--\session-347ab4b5-...\session.jsonl.zstd`
-- 词频统计：`decode-session2.mjs` / `analyze-forms.mjs` / `analyze-series.mjs`（deepseek-harness 检出根目录）
+- 会话日志：本仓库 `baseline-upstream/dsh-session-*.zip`（完整原始记录；本文分析的推理流式分片来自该会话日志）
+- 词频统计：分析用临时脚本（未包含在本仓库）
 - 工具目录快照：`request/header` 事件
 - 对照 baseline：`docs/baseline-session-analysis-20260815.md`

@@ -157,7 +157,7 @@
 
 # 附录 A：modeltest（Project2）11 样本交叉验证（2026-08-16）
 
-数据源：`D:\code\modeltest\evaluator\trajectory_evidence\derived\trajectory_stats.json`
+数据源：`trajectory_stats.json`（modeltest 评测证据目录，私有，未包含在本仓库）
 （10 个完成态样本 + 两份 anchored-standard 评审）。这是同一套微观指标在**另一个任务
 （Python+ESP32 维护工程，45 项 hidden 测试）**上的独立复验。
 

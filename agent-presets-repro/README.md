@@ -1,6 +1,6 @@
 # DeepSeek Agent 预设 · 可复现包
 
-本包把 **MDT（`/d/code/mdt`）里 11 个“网页版我的世界”实验会话所用到的 DeepSeek Harness Agent 预设**完整导出，供任何人在自己的 DeepSeek Harness 环境中 1:1 复现这些实验。
+本包把本仓库里 **11 个“网页版我的世界”实验会话所用到的 DeepSeek Harness Agent 预设**完整导出，供任何人在自己的 DeepSeek Harness 环境中 1:1 复现这些实验。
 
 ## 实验背景
 
@@ -29,7 +29,7 @@
 
 ## 预设来自哪里
 
-- **9 个自定义实验预设**：其中 7 个导出自 `C:\Users\25619\.dsh\.agent-presets\`（即 `%USERPROFILE%\.dsh\.agent-presets\`），逐字节复制到 `presets/custom/`；另外 2 个（`anchored-standard-old`、`anchored-standard-upstream`）是从 DeepSeek Harness 源码历史（`D:\code\dsh-anchored-standard` 仓库）按会话实际使用的提交形态提取的**历史版本**（B1 / UP 两个会话使用的正是这两个历史形态，详见下方"会话 → 预设版本"）。
+- **9 个自定义实验预设**：其中 7 个导出自本机安装目录 `%USERPROFILE%\.dsh\.agent-presets\`，逐字节复制到 `presets/custom/`；另外 2 个（`anchored-standard-old`、`anchored-standard-upstream`）是从 DeepSeek Harness 源码历史（lscatfish 分支）按会话实际使用的提交形态提取的**历史版本**（B1 / UP 两个会话使用的正是这两个历史形态，详见下方“会话 → 预设版本”）。
 - **4 个官方随附预设**：`code` / `cordis` / `minimal` / `standard`，复制自 DeepSeek Harness 源码 `apps/cli/config/agent-presets/`，放在 `presets/shipped/`，供对照。
 
 ## 目录结构

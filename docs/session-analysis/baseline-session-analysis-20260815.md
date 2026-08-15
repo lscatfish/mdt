@@ -1,6 +1,6 @@
 # Baseline 会话轨迹分析（2026-08-15）
 
-**会话：** `session-14f893a0`（项目 `D:\code\mdt\baseline`，即旧版 anchored-standard）
+**会话：** `session-14f893a0`（项目 `baseline/`，即旧版 anchored-standard）
 **任务：** "你只能够修改当前目录下的文件，可以使用git进行版本管理。请复刻一个网页版本的我的世界游戏"
 **结论先行：** 这是目前看到**效果最好**的一次交付，但它跑的是**被覆盖前的旧版 anchored-standard**（pwsh/read + 1024 cap），
 且轨迹里 let me 大量出现——与"let me 少 = 好"的直觉相反。这份文档记录数据、原因和对照含义。
@@ -55,7 +55,7 @@ suppressedContextSources: [agent-instructions, skill-catalog]
 let me 数量与交付质量**不呈简单负相关**。它在 "let's/we" 和 "I'll/I" 之间混用，没有固定模板，
 但每个 reasoning 块都是实打实的工程推进（写文件 → 测 → 修 → 提交）。
 
-## 3. 交付物（D:\code\mdt\baseline）
+## 3. 交付物（`baseline/`）
 
 ```
 index.html   2588 B
@@ -140,7 +140,7 @@ glob 1 | job_kill 1
 
 ## 6. 数据出处
 
-- 会话日志：`C:\Users\25619\.dsh\sessions\--D-code-mdt-baseline--\session-14f893a0-...\session.jsonl.zstd`
-- 词频统计：`decode-session2.mjs` / `analyze-forms.mjs`（deepseek-harness 检出根目录）
-- 交付物：`D:\code\mdt\baseline\`
-- 对照：`D:\code\modeltest\docs\v4.1\DEEPSEEK_V4_TRAJECTORY_ANALYSIS_20260814.md`
+- 会话日志：本仓库 `baseline/dsh-session-*.zip`（完整原始记录；本文分析的推理流式分片来自该会话日志）
+- 词频统计：分析用临时脚本（未包含在本仓库）
+- 交付物：`baseline/`
+- 对照：`DEEPSEEK_V4_TRAJECTORY_ANALYSIS_20260814.md`（modeltest 私有文档，未包含在本仓库）

@@ -6,7 +6,7 @@
 
 ### 0.1 任务与对象
 
-十一个会话在相同任务下运行：*"你只能够修改当前目录下的文件，可以使用 git 进行版本管理。请复刻一个网页版本的我的世界游戏"*（`D:\code\mdt\` 下各自项目目录）。模型：DeepSeek V4 Pro，reasoningEffort=max，Windows。
+十一个会话在相同任务下运行：*"你只能够修改当前目录下的文件，可以使用 git 进行版本管理。请复刻一个网页版本的我的世界游戏"*（本仓库各项目目录）。模型：DeepSeek V4 Pro，reasoningEffort=max，Windows。
 
 全文统一使用缩写命名，对照关系：
 
@@ -383,7 +383,7 @@
 
 ## 7. 与 modeltest（Project2）的交叉验证
 
-同一套微观指标在**另一个任务（Python+ESP32 维护工程，45 项 hidden 测试）**上的独立复验。数据源：`D:\code\modeltest\evaluator\trajectory_evidence\derived\trajectory_stats.json`（11 个样本：10 个完成态 + 两份 anchored-standard 评审）。
+同一套微观指标在**另一个任务（Python+ESP32 维护工程，45 项 hidden 测试）**上的独立复验。数据源：`trajectory_stats.json`（modeltest 评测证据目录，私有，未包含在本仓库；11 个样本：10 个完成态 + 两份 anchored-standard 评审）。
 
 ### 7.1 样本总览
 
