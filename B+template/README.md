@@ -7,7 +7,7 @@
 方式一（推荐，禁用缓存）：
 
 ```bash
-python serve.py          # 默认 http://127.0.0.1:8133
+python serve.py          # 默认 http://127.0.0.1:8000
 python serve.py 8000     # 自定义端口
 ```
 
