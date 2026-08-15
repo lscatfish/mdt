@@ -76,4 +76,4 @@ git clone preserved-git-history/RL-open.bundle RL-open-restored
 
 ## License
 
-[MIT](LICENSE)（代码、预设配置与分析文档）
+[MIT](LICENSE)（本仓库原创内容：代码、预设配置与分析文档）。仓库含第三方内容（DeepSeek Harness 官方预设、dsh-anchored-standard 预设插件、模型输出），来源与许可声明见 [NOTICE](NOTICE.md)。
