@@ -1,20 +1,20 @@
 # MDT — 网页版我的世界 · Agent 预设实验集
 
-本仓库是 11 个用 DeepSeek Harness 复刻“网页版我的世界”的实验目录的完整快照，以及把每个实验所用 **Agent 预设** 单独导出后的可复现包。
+本仓库是 12 个用 DeepSeek Harness 复刻“网页版我的世界”的实验目录的完整快照（11 个配置各异 + 1 个 UP 同形态复测），以及把每个实验所用 **Agent 预设** 单独导出后的可复现包。
 
 ## 实验条件与结论声明（务必先读）
 
-- **未完全控制变量**：11 个会话的实验条件存在略微偏差（例如 Full access 权限开启时机不一致——有的会话一开头就开启，有的执行到中途某一步才开启；另有 n=1 未重复跑、单用户主观评级等），详见综合报告 0.5 节。
+- **未完全控制变量**：12 个会话的实验条件存在略微偏差（例如 Full access 权限开启时机不一致——有的会话一开头就开启，有的执行到中途某一步才开启；另有每配置 n=1（UP 配置 n=2）、单用户主观评级等），详见综合报告 0.5 节。
 - **结果仅供参考**：不保证可复现，不保证为真。
 - **结论不代表作者观点**：本仓库分析与报告中的结论仅是对这组实验数据的记录与归纳，可能存在错误。
 - **结论仅对本次"许愿式生成"实验有效**：所有结论只适用于"只给愿望式任务、不给工程指令"这一种生成方式下的这一个任务，**不能说明其他任何场景、任何任务、任何配置下的一切情况**。
 
 ## 最终结果
 
-**十一会话思维链综合报告（正式版，含实验性质、结论边界与免责声明）**：
+**十二会话思维链综合报告（正式版，含实验性质、结论边界与免责声明）**：
 
 ```
-docs/session-analysis/COMPREHENSIVE-REPORT-20260815.md
+COMPREHENSIVE-REPORT-20260815.md
 ```
 
 ## 顶层目录
@@ -22,7 +22,7 @@ docs/session-analysis/COMPREHENSIVE-REPORT-20260815.md
 | 目录 | 说明 |
 | --- | --- |
 | `RL-open/` | 最终版本：完整网页版我的世界（Three.js + 程序化体素地形 + 昼夜循环 + 存档） |
-| `baseline/` `baseline2/` `baseline3/` `baseline-upstream/` `baseline-bash/` | 不同策略的基线对照实验 |
+| `baseline/` `baseline2/` `baseline3/` `baseline-upstream/` `baseline-upstream2/` `baseline-bash/` | 不同策略的基线对照实验（`baseline-upstream2/` 为 UP 同形态复测，原始 git 历史见 `preserved-git-history/baseline-upstream2.bundle`） |
 | `B+template/` | B+ 模板实验 |
 | `prompt-adding/` | 在任务提示里追加额外约束的实验 |
 | `try-mc1/` `try-mc2/` `try-mc3/` | 早期尝试版本 |
@@ -38,7 +38,7 @@ docs/session-analysis/COMPREHENSIVE-REPORT-20260815.md
 
 ## Agent 预设说明
 
-11 个会话的开头已逐个解析，核对报告在：
+12 个会话的开头已逐个解析，核对报告在：
 
 ```
 agent-presets-repro/sessions/README.md
@@ -56,13 +56,13 @@ agent-presets-repro/presets/custom/
 
 ## 分析文档（思维链研究）
 
-11 个会话的思维链分析（宏观轨迹 + 微观指纹 + 交付实测 + 结论边界）在：
+**十二会话综合报告**在仓库根目录：`COMPREHENSIVE-REPORT-20260815.md`（许愿式生成实验性质说明（0.4）、结论边界与免责声明（0.5）、交付实测、总表、宏观/微观全量结果、UP vs UP2 同形态复测、modeltest 交叉验证、版本形态附录）；用户逐会话实测记录与其他过程文档在：
 
 ```
 docs/session-analysis/
 ```
 
-- `COMPREHENSIVE-REPORT-20260815.md` — **综合报告（正式版）**：十一会话启动说明、许愿式生成实验性质说明（0.4）、结论边界与免责声明（0.5）、交付实测、总表、宏观/微观全量结果、modeltest 交叉验证、版本形态附录
+- `user-playtest-records-20260816.md` — **用户逐会话实测记录**（12 会话）
 - `rl-open-session-analysis-20260816.md` — RL-open（anchored-standard-open 首跑）单会话分析
 - 其余各会话单文档与指纹过程文档，索引见 `docs/session-analysis/README.md`
 

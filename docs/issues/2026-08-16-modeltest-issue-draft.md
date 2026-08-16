@@ -2,7 +2,7 @@
 
 > 目标仓库：https://github.com/xiaobright/modeltest → Issues → New issue
 > 状态：草稿 v4（基于 2026-08-16 全量回测、UP2 同形态复测与结论修正；n=1 局限已明确标注，UP 配置为 n=2）
-> 数据支撑见本仓库 `docs/session-analysis/`（综合报告 + 用户逐会话实测记录，含 UP2 复测）与 `agent-presets-repro/`
+> 数据支撑见本仓库根目录 `COMPREHENSIVE-REPORT-20260815.md`（综合报告）、`docs/session-analysis/`（用户逐会话实测记录，含 UP2 复测）与 `agent-presets-repro/`
 
 ---
 
@@ -154,7 +154,7 @@
 ### 数据位置（可复现）
 
 - 仓库：https://github.com/lscatfish/mdt
-- 会话日志、综合报告、实测记录：`docs/session-analysis/`；UP2 会话：`baseline-upstream2/`；预设：`agent-presets-repro/`
+- 会话日志、实测记录：`docs/session-analysis/`；综合报告：根目录 `COMPREHENSIVE-REPORT-20260815.md`；UP2 会话：`baseline-upstream2/`；预设：`agent-presets-repro/`
 
 ### 可贡献形态（如需）
 
