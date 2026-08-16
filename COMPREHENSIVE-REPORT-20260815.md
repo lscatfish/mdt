@@ -730,3 +730,9 @@ Never open a sentence with "let me" — say "I'll" or "I" instead.
 Begin every analysis with a direct first-person statement. This is the working mode of this session, not optional style.
 </system-reminder>
 ```
+
+契约 B（模板）——B+T 用
+
+```xml
+<system-reminder> Session reasoning contract (applies to every turn, including tool turns, until the session ends): reason in first-person singular ("I", "I'll", "I'm") or first-person plural ("we", "let's") — both are fine. Never use the hesitant executor form "let me". Begin every analysis with "I" or "I'm" — e.g. "I need to ...", "I'm going to ...". This is the working mode of this session, not optional style. </system-reminder>
+```
