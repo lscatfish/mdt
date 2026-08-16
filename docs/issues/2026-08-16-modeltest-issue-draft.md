@@ -34,7 +34,7 @@
 | 会话 | 研究 | 首轮 | 注入内容 | 第二轮 | 评分（细则打分制） |
 | --- | --- | --- | --- | --- | --- |
 | B1 | 锚定 | 2 工具 [pwsh, read] + 输出 cap 1024 | 无 | 61 全开 | **86.8** |
-| UP | 锚定 | 2 工具 [bash, str_replace_editor]（Git Bash） | 无 | 61 全开（晋升低注入） | **85.7** |
+| UP | 锚定 | 2 工具 [bash, str_replace_editor]（Git Bash） | 无 | **晋升低注入 5–6 工具**（bash/str_replace_editor/dev_tool_search/skill_load/skill_search/read_image，request/header 实测；非 61 全开） | **85.7** |
 | UP2 | 锚定 | 同 UP（[bash, str_replace_editor]，Git Bash）——**UP 的同形态复测** | 无 | 晋升低注入 5 工具（同 UP） | **27.8（差档；渲染大故障）** |
 | B2 | 锚定 | 2 工具 [pwsh, read] | 无 | 61 全开 | 71.1 |
 | B3 | 锚定 | 2 工具 [pwsh, read]（首轮纯思考 5.5 分钟被中止） | 无 | 61 全开 | 80.0 |
@@ -56,6 +56,7 @@
    - 贵仓库决定性实验观察：首轮窄工具面后"恢复完整工具"，轨迹不丢（anchored 98/99 的 let_me≈0）。
    - **但那个"恢复完整工具"实为"假全开"**：工具目录含 resident 隐藏式组件，模型实际可见仅 5–6 个工具——工具面仍小，这是轨迹不丢的真正原因（贵仓库报告未拆开这一点）。
    - 本实验补测其成立前提（消融：把隐藏因素拿掉）：RL 同 minimal 接口首轮锚定（[bash, str_replace_editor]，request 逐字节实测与官方一致），晋升后 **63 工具真全开**（无 resident 隐藏组件）→ 轨迹在 **1 个 step 内**回归 standard 系（we 1.74 / let me 0.26，介于 anchored 带与 standard 带之间；块长 p50=430 vs standard 437）。
+   - **正向佐证（UP/UP2）**：upstream 形态晋升后**并非全开**（request/header 实测 5–6 工具：bash/str_replace_editor/dev_tool_search/skill_load/skill_search/read_image，无 MCP、无 skill-catalog 目录），工具面始终受控 → 轨迹全程 anchored 带（we 家族 3.32/4.31、let_me 0.02），两次运行一致。
    - 结论：**"晋升后不丢轨迹"依赖晋升后可见工具面仍受控**；工具面规模对轨迹保持是**连续梯度而非开关**（工具面越小越保持 minimal，越大越回归 standard）。
 
 3. **轨迹 ≠ 质量（最强反例，经全量实机回测确认）**：轨迹最纯的会话（BB：let_me=6、we 家族 566）实机**不可玩**（大规模区块渲染问题，打分 5.0）；轨迹最散的会话（B1：let_me=128）打分 86.8（好档）。锚定可靠地复现了轨迹形态，没有复现质量。**UP2 同形态复测把这一反例推到极限**（见第 4a 条）：同预设、同轨迹、同指纹，质量 85.7 vs 27.8。

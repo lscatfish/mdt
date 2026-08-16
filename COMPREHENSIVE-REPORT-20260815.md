@@ -53,9 +53,9 @@
 **什么是"许愿式生成"**：本次实验的统一性质定义——**指令层**没有工程脚手架：任务提示词只提出愿望式目标（"复刻一个网页版本的我的世界"），无验证指令、无质量标准、无技术选型约束、无验收清单、无工程规范注入。模型拿到的是"目标 + 当前目录 + git 权限"，技术路线、功能面、验证方案全部由模型自主决定。
 
 **但环境层自带能力脚手架（用户预装，非实验变量）**：
-- **4 个 MCP 服务器**（晋升后全部进入工具目录，共 36 个工具）：playwright（浏览器自动化，24 工具）、server-memory（会话记忆知识图谱，9）、context7（库文档查询，2）、codegraph（代码检索，1）；
-- **项目 skill 目录注入（Matt Pocock 的 skills 集）**：用户安装的 Matt Pocock skills。**该注入是普遍机制，所有会话在工具面全开/晋升后都会出现**，并非 RL 特有——anchored 系预设首轮剥离 skill-catalog、晋升后恢复；zero-anchored 系第二轮注入（try 会话实测 turn2 工具目录含 skill-catalog）；standard 系全开即注入。RL-open 会话是**唯一做过 request/header 逐字节实测**的，确认注入 15 项（code-review / tdd / grilling / diagnosing-bugs / prototype / research / wizard / writing-for-agents 等），具体数量随项目目录的 skill 目录而异；
-- 因此"许愿式生成"的准确含义是：**指令层零工程要求，环境层脚手架齐备**。验证文化的工具基础正是这个脚手架——playwright 使像素断言/控制台检查成为可能；模型的自主性体现在**在无任何提示下选择使用**（RL 调用 playwright 74 次，codegraph/context7/server-memory/skill 0 次——脚手架可用，用不用、怎么用由模型决定）。anchored 系预设首轮只暴露 2 个工具（MCP 不可见），晋升后才可见可用。
+- **4 个 MCP 服务器**（晋升后全部进入工具目录，共 36 个工具）：playwright（浏览器自动化，24 工具）、server-memory（会话记忆知识图谱，9）、context7（库文档查询，2）、codegraph（代码检索，1）——**例外：upstream 形态（UP/UP2）晋升后为低注入小工具面，MCP 工具不入目录**（UP2 全程仅用 bash + dev_tool_search，浏览器实测靠自装 python playwright）；
+- **项目 skill 目录注入（Matt Pocock 的 skills 集）**：用户安装的 Matt Pocock skills。**该注入是普遍机制，所有会话在工具面全开/晋升后都会出现**，并非 RL 特有——anchored 系预设首轮剥离 skill-catalog、晋升后恢复；zero-anchored 系第二轮注入（try 会话实测 turn2 工具目录含 skill-catalog）；standard 系全开即注入。**例外：upstream 形态（UP/UP2）晋升后为低注入小工具面（5–6 工具），不给 skill-catalog 目录，只提供 skill_search/skill_load 按需搜索**。RL-open 会话是**唯一做过 request/header 逐字节实测**的，确认注入 15 项（code-review / tdd / grilling / diagnosing-bugs / prototype / research / wizard / writing-for-agents 等），具体数量随项目目录的 skill 目录而异；
+- 因此"许愿式生成"的准确含义是：**指令层零工程要求，环境层脚手架齐备**。验证文化的工具基础正是这个脚手架——playwright 使像素断言/控制台检查成为可能；模型的自主性体现在**在无任何提示下选择使用**（RL 调用 playwright 74 次，codegraph/context7/server-memory/skill 0 次——脚手架可用，用不用、怎么用由模型决定）。anchored 系预设首轮只暴露 2 个工具（MCP 不可见），晋升后才可见可用；**upstream 形态（UP/UP2）晋升后 MCP 仍不可见**（低注入小工具面，自装 python playwright 绕过）。
 
 **它的规划性质：短程规划，不是长程规划**。生成过程确实带有规划，但形态是：
 - **前期一次性架构设计**（如 RL step 3 的 65k 字符设计块、B1/UP 的深首块）——把功能面/文件结构/技术路线一次性定下来，之后进入执行；
@@ -132,7 +132,7 @@
 
 ### UP（upstream main 形态）
 - **第一轮**：只给 2 个工具（bash——Git Bash on Windows 的 custom-bash 工具、str_replace_editor 文件编辑器），输出不限制。
-- **第二轮**：61 个工具全部开放。（此形态注入比旧版少：工具是"常用小集合 + 按需解锁"，不是一次全给）
+- **第二轮**：**并非 61 工具全开**——晋升后为低注入小工具面（request/header 实测 5→6 个工具：bash、str_replace_editor、dev_tool_search、skill_load、skill_search，第三轮追加 read_image），**无 skill-catalog 目录注入**。（此形态注入比旧版少：工具是"常用小集合 + 按需解锁"，不是一次全给）
 
 ### UP2（UP 的同形态复测，baseline-upstream2）
 - **第一轮**：与 UP 完全相同——bash + str_replace_editor（Git Bash）。
@@ -670,4 +670,4 @@
 | standard-we-contract / -b | 完整 Standard 工具 + 系统提示常驻推理契约（A：we 型 / B：禁 let me） | `presets/custom/standard-we-contract/`、`presets/custom/standard-we-contract-b/` | T3 |
 | standard（官方） | DeepSeek Harness 官方标准预设（完整系统提示词） | `presets/shipped/standard/` | PA |
 
-**场景区别一句话**：B1/UP/UP2/RL 首轮都是"只给 2 个工具、之后恢复全量"（B1=[pwsh,read]、UP/UP2=[bash,editor]、RL=[bash,editor]）；T1/T2/B+T 首轮"0 个工具 + 注入风格要求"；T3/PA 首轮"61 个工具直接全开"。modeltest 的 98/99 分数绑定在外部评测形态（不在本仓库），本仓库各预设从未在 Project2 同场验证；RL 的轨迹中间带（we 1.74 / let me 0.26）说明 anchored-standard-open 的锚定只作用于首轮——**要全程 minimal 轨迹须保持小工具面**；UP2 与 UP 同形态复测（轨迹同族但质量 27.8 vs 85.7）——**轨迹形态可复现、质量不可复现**。
+**场景区别一句话**：B1/UP/UP2/RL 首轮都是"只给 2 个工具"（B1=[pwsh,read]、UP/UP2=[bash,editor]、RL=[bash,editor]），但晋升后不同：B1 61 工具全开，UP/UP2 低注入 5–6 工具（不恢复全量），RL 63 工具全开；T1/T2/B+T 首轮"0 个工具 + 注入风格要求"；T3/PA 首轮"61 个工具直接全开"。modeltest 的 98/99 分数绑定在外部评测形态（不在本仓库），本仓库各预设从未在 Project2 同场验证；RL 的轨迹中间带（we 1.74 / let me 0.26）说明 anchored-standard-open 的锚定只作用于首轮——**要全程 minimal 轨迹须保持小工具面**（UP/UP2 晋升后仍低注入小工具面，正是其全程 minimal 轨迹的直接原因）；UP2 与 UP 同形态复测（轨迹同族但质量 27.8 vs 85.7）——**轨迹形态可复现、质量不可复现**。
