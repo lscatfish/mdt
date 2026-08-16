@@ -33,18 +33,18 @@
 
 | 会话 | 研究 | 首轮 | 注入内容 | 第二轮 | 评分（细则打分制） |
 | --- | --- | --- | --- | --- | --- |
-| B1 | 锚定 | 2 工具 [pwsh, read] + 输出 cap 1024 | 无 | 61 全开 | **86.8（原"最好"）** |
-| UP | 锚定 | 2 工具 [bash, str_replace_editor]（Git Bash） | 无 | 61 全开（晋升低注入） | **85.7（原"最好"）** |
+| B1 | 锚定 | 2 工具 [pwsh, read] + 输出 cap 1024 | 无 | 61 全开 | **86.8** |
+| UP | 锚定 | 2 工具 [bash, str_replace_editor]（Git Bash） | 无 | 61 全开（晋升低注入） | **85.7** |
 | UP2 | 锚定 | 同 UP（[bash, str_replace_editor]，Git Bash）——**UP 的同形态复测** | 无 | 晋升低注入 5 工具（同 UP） | **27.8（差档；渲染大故障）** |
-| B2 | 锚定 | 2 工具 [pwsh, read] | 无 | 61 全开 | 71.1（原"不好"） |
-| B3 | 锚定 | 2 工具 [pwsh, read]（首轮纯思考 5.5 分钟被中止） | 无 | 61 全开 | 80.0（原"较好"） |
-| BB | 锚定 | 2 工具 [bash, read]（Git Bash，双路径事故） | 无 | 61 全开 | 5.0（原"不行"） |
-| RL | 锚定 | 2 工具 [bash, str_replace_editor] + 一句 persona（与官方 minimal 逐字节一致） | 无 | **step 2 自动晋升 63 全开** + skill 注入 | 71.1（原"较好"） |
-| T1 | 注入 | **0 工具锚点轮** | B 契约（anchor 消息）："不要用 let me 开头，改用 I'll 或 I" | 61 全开 + skill-catalog | 80.6（原"不好"） |
-| T2 | 注入 | **0 工具锚点轮** | A 契约（anchor 消息）："只用 we/let's/our，禁用 I/let me/my，每段用 We need 开头" | 61 全开 | 35.7（原"最好但贴图错"） |
-| T3 | 注入 | 61 直接全开 | A 契约**写进系统提示**（-200 section，非消息注入） | — | 18.8（原"最差"） |
-| B+T | 注入 | **0 工具锚点轮** | B 契约（anchor 消息）+ 模板 | 61 全开（45 次→中断 4h→212 次） | 68.4（原"中等"） |
-| PA | 注入 | 61 直接全开 | 用户消息自带**流程规划提示词**（勘察/交付物/功能/思考节奏/选型/验证/收尾框架） | — | 60.5（原"还行"） |
+| B2 | 锚定 | 2 工具 [pwsh, read] | 无 | 61 全开 | 71.1 |
+| B3 | 锚定 | 2 工具 [pwsh, read]（首轮纯思考 5.5 分钟被中止） | 无 | 61 全开 | 80.0 |
+| BB | 锚定 | 2 工具 [bash, read]（Git Bash，双路径事故） | 无 | 61 全开 | 5.0 |
+| RL | 锚定 | 2 工具 [bash, str_replace_editor] + 一句 persona（与官方 minimal 逐字节一致） | 无 | **step 2 自动晋升 63 全开** + skill 注入 | 71.1 |
+| T1 | 注入 | **0 工具锚点轮** | B 契约（anchor 消息）："不要用 let me 开头，改用 I'll 或 I" | 61 全开 + skill-catalog | 80.6 |
+| T2 | 注入 | **0 工具锚点轮** | A 契约（anchor 消息）："只用 we/let's/our，禁用 I/let me/my，每段用 We need 开头" | 61 全开 | 35.7 |
+| T3 | 注入 | 61 直接全开 | A 契约**写进系统提示**（-200 section，非消息注入） | — | 18.8 |
+| B+T | 注入 | **0 工具锚点轮** | B 契约（anchor 消息）+ 模板 | 61 全开（45 次→中断 4h→212 次） | 68.4 |
+| PA | 注入 | 61 直接全开 | 用户消息自带**流程规划提示词**（勘察/交付物/功能/思考节奏/选型/验证/收尾框架） | — | 60.5 |
 
 ### 核心发现
 
@@ -153,19 +153,12 @@
 
 ### 数据位置（可复现）
 
-- 完整会话日志（`dsh-session-*.zip`，含 SHA-256 清单）、综合报告（含结论边界与免责声明）+ 用户逐会话实测记录：**https://github.com/lscatfish/mdt** → `docs/session-analysis/`；UP2 会话仓库（交付代码 + zip + git bundle）已收纳于 `baseline-upstream2/` + `preserved-git-history/`
-- 可复现预设：`agent-presets-repro/`（9 个自定义预设 + 4 个官方 shipped 预设 + 安装步骤）
+- 仓库：https://github.com/lscatfish/mdt
+- 会话日志、综合报告、实测记录：`docs/session-analysis/`；UP2 会话：`baseline-upstream2/`；预设：`agent-presets-repro/`
 
 ### 可贡献形态（如需）
 
 可按贵仓库 `evaluator/trajectory_evidence/` 的列格式（label/model/score/configuration/format/we/let_me/lets/i/reasoning_p50_chars/visible_blocks/tool_calls/output_tokens/reasoning_tokens/cache_read_tokens 等）生成 12 会话同列 CSV/JSON + SHA-256 manifest，作为 PR 提交。
-
-### 建议的下一步（如果要确认上述方向性结论）
-
-- 同一配置**多轮重复（n≥3）**：检验偶然因素（尤其是锚定好档 3/4 vs 1/4 与轨迹回归的稳定性）——UP2 已提供 UP 配置的 n=2（轨迹复现、质量未复现），进一步 n≥3 可确认"轨迹稳定、质量不稳定"是否普遍；
-- 配对对照：标准预设 vs 标准预设+首轮锚定，同一任务同一平台；
-- 盲评：评级由不知情的评测者给出；
-- **贵仓库侧建议**：对 98/99 的 anchored/minimal 样本做多轮复测，检验其分数稳定性——本实验 UP vs UP2 表明轨迹指纹可复现但分数未必（85.7 vs 27.8）。
 
 ### 声明
 
