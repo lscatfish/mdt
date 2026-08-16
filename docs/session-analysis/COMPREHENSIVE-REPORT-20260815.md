@@ -23,7 +23,7 @@
 | **PA** | `6121afd6` | `mdt\prompt-adding` | standard（无锚定无要求）+ 用户消息自带首块规划提示词 → `shipped/standard/` |
 | **BB** | `ff3a7c80` | `mdt\baseline-bash` | anchored-standard-gitbash（custom-bash + 路径约定修复）→ `custom/anchored-standard-gitbash/` |
 | **RL** | `fb6443f2` | `mdt\RL-open` | **anchored-standard-open**（首轮 bootstrapTools `[bash, str_replace_editor]` 官方 minimal 接口 + 晋升后 63 工具全开，无 resident 隐藏组件）→ `custom/anchored-standard-open/` |
-| **UP2** | `e5d80edb` | `baseline-upstream2`（`D:\code\` 下独立目录，非 mdt 仓库；会话 zip：`dsh-session-session-e5d80edb-….zip`） | baseline-upstream（UP）的复测，**upstream 形态复现成功**（首轮 `[bash, str_replace_editor]` + 晋升低注入 5 工具，同旧 UP）→ `custom/anchored-standard-upstream/` |
+| **UP2** | `e5d80edb` | `mdt\baseline-upstream2`（2026-08-16 收纳：交付代码 + 会话 zip 入该目录，原始 git 历史以 `preserved-git-history\baseline-upstream2.bundle` 保留，与其余 11 会话同惯例） | baseline-upstream（UP）的复测，**upstream 形态复现成功**（首轮 `[bash, str_replace_editor]` + 晋升低注入 5 工具，同旧 UP）→ `custom/anchored-standard-upstream/` |
 
 用户最终实测评级（2026-08-16 全量回测 + UP2 追加实测，细则打分制百分制，详见 2.3 节；括号为原主观评级）：**B1 86.8（最好）、UP 85.7（最好）、T1 80.6（不好）、B3 80.0（较好）、B2 71.1（不好）、RL 71.1（较好）、B+T 68.4（中等）、PA 60.5（还行）、T2 35.7（最好但贴图错）、UP2 27.8（差档；渲染大故障）、T3 18.8（最差）、BB 5.0（不行）**。水的普遍问题为**可被左键破坏**（交互），水的视觉渲染/游泳机制大体正常——详见 2.2 实测矩阵。
 

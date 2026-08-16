@@ -303,7 +303,7 @@
 
 ## UP2（baseline-upstream2 —— baseline-upstream（UP）的复测，**upstream 形态复现成功**）
 
-**实测时间**：2026-08-16（会话 `e5d80edb`，开启于 08:13；首轮 `[bash, str_replace_editor]`、晋升后低注入 5 工具 `[bash, dev_tool_search, skill_load, skill_search, str_replace_editor]`、无 skill-catalog 注入——与旧 UP 逐字节同形态；zip 历史：`D:\code\baseline-upstream2\dsh-session-session-e5d80edb-….zip`）
+**实测时间**：2026-08-16（会话 `e5d80edb`，开启于 08:13；首轮 `[bash, str_replace_editor]`、晋升后低注入 5 工具 `[bash, dev_tool_search, skill_load, skill_search, str_replace_editor]`、无 skill-catalog 注入——与旧 UP 逐字节同形态；会话 zip 已收纳于 `mdt\baseline-upstream2\dsh-session-session-e5d80edb-….zip`，原始 git 历史见 `preserved-git-history\baseline-upstream2.bundle`）
 
 **用户评价摘要**：**渲染超级大故障，不可玩**；但**水系统是 12 会话中最完整的**——左键挖不掉、**可被方块填掉**、有进水蓝色特效、游泳正常，只差"不会流动"。
 
